@@ -1,0 +1,100 @@
+[gd_scene load_steps=15 format=3 uid="uid://c6psggx8qgdat"]
+
+[ext_resource type="Script" path="res://Scenes/CameraControl.gd" id="1_8arvf"]
+[ext_resource type="Material" uid="uid://clcycw1xg1ngh" path="res://Materials/GrassMaterial.tres" id="1_hdk40"]
+[ext_resource type="Script" path="res://Scripts/Grabable.gd" id="2_bw1dx"]
+[ext_resource type="Script" path="res://Scenes/CameraPivot.gd" id="2_r0yoa"]
+[ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="4_ykmse"]
+[ext_resource type="PackedScene" uid="uid://d4jsm3nk210wl" path="res://Models/Table.blend" id="4_yu3tf"]
+[ext_resource type="Material" uid="uid://csyx73a8bn003" path="res://Materials/Shaders/VertexColor.tres" id="6_78w2k"]
+[ext_resource type="PackedScene" uid="uid://xhqrglxey17i" path="res://Models/Ingredientts/Onion.blend" id="6_pfvgd"]
+[ext_resource type="PackedScene" uid="uid://dd56apkrkaq3j" path="res://Models/Ingredientts/Tomato.blend" id="8_x3igl"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_chu74"]
+size = Vector2(20, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_oi37k"]
+size = Vector3(2, 0.1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xbty7"]
+lightmap_size_hint = Vector2i(3, 2)
+material = ExtResource("6_78w2k")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_3t36u"]
+material = ExtResource("4_ykmse")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qctkj"]
+radius = 0.0558365
+
+[node name="World" type="Node3D"]
+
+[node name="Base" type="Node" parent="."]
+
+[node name="Ground" type="CSGMesh3D" parent="Base"]
+material_override = ExtResource("1_hdk40")
+mesh = SubResource("PlaneMesh_chu74")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.931317, 0.456695)
+visible = false
+use_collision = true
+mesh = SubResource("BoxMesh_oi37k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, -0.703035, 0.711155, 0, -0.711155, -0.703035, 0, 4.84662, -2.65617)
+
+[node name="CameraPivot" type="Node3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.971527, 0.17652)
+script = ExtResource("2_r0yoa")
+
+[node name="Camera3D" type="Camera3D" parent="Base/CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.833037, 0.553217, 0, -0.553217, 0.833037, -2.38419e-07, 0.803508, 1.09471)
+fov = 80.0
+script = ExtResource("1_8arvf")
+
+[node name="Table" parent="Base" instance=ExtResource("4_yu3tf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.810172, 0)
+
+[node name="Interactuable" type="Node" parent="."]
+
+[node name="SphereInteractuable" type="RigidBody3D" parent="Interactuable" node_paths=PackedStringArray("hovered_indicator")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584, 1.124, 0.6)
+script = ExtResource("2_bw1dx")
+hovered_indicator = NodePath("HoveredMesh")
+
+[node name="Mesh" type="MeshInstance3D" parent="Interactuable/SphereInteractuable"]
+visible = false
+mesh = SubResource("SphereMesh_xbty7")
+skeleton = NodePath("../..")
+
+[node name="HoveredMesh" type="MeshInstance3D" parent="Interactuable/SphereInteractuable"]
+visible = false
+mesh = SubResource("SphereMesh_3t36u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactuable/SphereInteractuable"]
+shape = SubResource("SphereShape3D_qctkj")
+
+[node name="Onion" parent="Interactuable/SphereInteractuable" instance=ExtResource("6_pfvgd")]
+
+[node name="SphereInteractuable2" type="RigidBody3D" parent="Interactuable" node_paths=PackedStringArray("hovered_indicator")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.138518, 1.124, 0.6)
+script = ExtResource("2_bw1dx")
+hovered_indicator = NodePath("HoveredMesh")
+grabbed_view = 1
+
+[node name="Tomato" parent="Interactuable/SphereInteractuable2" instance=ExtResource("8_x3igl")]
+
+[node name="Mesh" type="MeshInstance3D" parent="Interactuable/SphereInteractuable2"]
+visible = false
+mesh = SubResource("SphereMesh_xbty7")
+skeleton = NodePath("../..")
+
+[node name="HoveredMesh" type="MeshInstance3D" parent="Interactuable/SphereInteractuable2"]
+mesh = SubResource("SphereMesh_3t36u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactuable/SphereInteractuable2"]
+shape = SubResource("SphereShape3D_qctkj")
