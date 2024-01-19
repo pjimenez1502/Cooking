@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://34t5kqk533km"]
+
+[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_2614y"]
+[ext_resource type="PackedScene" uid="uid://cgfd21ut0784n" path="res://Models/Ingredientts/Onion.glb" id="2_sdo83"]
+[ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="3_mtjqw"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_huf6a"]
+material = ExtResource("3_mtjqw")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_016kp"]
+radius = 0.0558365
+
+[node name="Onion" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
+collision_layer = 2
+script = ExtResource("1_2614y")
+hovered_indicator = NodePath("HoveredMesh")
+target_z = 1.0
+
+[node name="Onion" parent="." instance=ExtResource("2_sdo83")]
+
+[node name="HoveredMesh" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_huf6a")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_016kp")

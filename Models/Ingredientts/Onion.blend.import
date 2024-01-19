@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://xhqrglxey17i"
+uid="uid://bxyo123lo7o03"
 path="res://.godot/imported/Onion.blend-6a01e3afc7c3efec7878514e42785229.scn"
 
 [deps]
@@ -29,14 +29,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"materials": {
-"@MATERIAL:0": {
-"use_external/enabled": true,
-"use_external/path": "res://Materials/Shaders/VertexColor.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
 blender/nodes/visible=0

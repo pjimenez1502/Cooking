@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://de3x63aoxkhi5"
+uid="uid://bso6lrjf48dcx"
 path="res://.godot/imported/Carrot.blend-c34c7b43c7cf423a9488c2341395d190.scn"
 
 [deps]
@@ -29,14 +29,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"materials": {
-"Material": {
-"use_external/enabled": true,
-"use_external/path": "res://Materials/Shaders/VertexColor.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
 blender/nodes/visible=0
