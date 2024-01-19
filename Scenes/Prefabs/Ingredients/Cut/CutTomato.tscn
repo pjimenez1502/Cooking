@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://drg5j8frdg07l"]
 
 [ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_cinjs"]
-[ext_resource type="Texture2D" uid="uid://g8ccbn0ru8yo" path="res://Models/Ingredientts/Prcoessed/Tomato_Cut_Tomato.png" id="2_hu33r"]
+[ext_resource type="Texture2D" uid="uid://g8ccbn0ru8yo" path="res://Models/Ingredientts/Processed/Tomato_Cut_Tomato.png" id="2_hu33r"]
 [ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="3_4ci7i"]
-[ext_resource type="PackedScene" uid="uid://0ryexuxmamxq" path="res://Models/Ingredientts/Prcoessed/Tomato_Cut.glb" id="4_fes4s"]
+[ext_resource type="PackedScene" uid="uid://0ryexuxmamxq" path="res://Models/Ingredientts/Processed/Tomato_Cut.glb" id="4_fes4s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbtsa"]
 resource_name = "Tomato"

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://p4ibv4e8ysux"]
+
+[ext_resource type="PackedScene" uid="uid://chgcc2fr7o53r" path="res://Models/Tools/Pot_Lid.glb" id="1_cgeer"]
+[ext_resource type="Script" path="res://Scripts/Grabable.gd" id="1_mbarf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_27lg5"]
+size = Vector3(0.36, 0.0509375, 0.36)
+
+[node name="PotLid" type="RigidBody3D"]
+script = ExtResource("1_mbarf")
+grabbed_view = 1
+
+[node name="Pot_Lid" parent="." instance=ExtResource("1_cgeer")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0240312, 0)
+shape = SubResource("BoxShape3D_27lg5")

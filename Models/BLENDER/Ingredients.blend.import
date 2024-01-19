@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://byancr22s5fb5"
-path="res://.godot/imported/Tomato.blend-a32856d56838cffdcfbfc6fb37f0bc86.scn"
+uid="uid://bd2is8jrfq3nv"
+path="res://.godot/imported/Ingredients.blend-ddef8b9d2ae9ede3749d55ee7e7c07ff.scn"
 
 [deps]
 
-source_file="res://Models/Ingredientts/Tomato.blend"
-dest_files=["res://.godot/imported/Tomato.blend-a32856d56838cffdcfbfc6fb37f0bc86.scn"]
+source_file="res://Models/BLENDER/Ingredients.blend"
+dest_files=["res://.godot/imported/Ingredients.blend-ddef8b9d2ae9ede3749d55ee7e7c07ff.scn"]
 
 [params]
 

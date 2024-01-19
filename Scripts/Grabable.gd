@@ -44,5 +44,4 @@ func set_hovered(value):
 	hovered_indicator.visible = value
 	
 func use():
-	print("USING")
 	pass

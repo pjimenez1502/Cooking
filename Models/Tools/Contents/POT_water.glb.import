@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://0ryexuxmamxq"
-path="res://.godot/imported/Tomato_Cut.glb-67d7a8882166278f541b9fafc1124012.scn"
+uid="uid://crlaka20ia6pp"
+path="res://.godot/imported/POT_water.glb-f60690cb1feaa25fa294f1105aad15cd.scn"
 
 [deps]
 
-source_file="res://Models/Ingredientts/Prcoessed/Tomato_Cut.glb"
-dest_files=["res://.godot/imported/Tomato_Cut.glb-67d7a8882166278f541b9fafc1124012.scn"]
+source_file="res://Models/Tools/Contents/POT_water.glb"
+dest_files=["res://.godot/imported/POT_water.glb-f60690cb1feaa25fa294f1105aad15cd.scn"]
 
 [params]
 

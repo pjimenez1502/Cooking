@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dono37seo1eit"]
+[gd_scene load_steps=8 format=3 uid="uid://dono37seo1eit"]
 
-[ext_resource type="Script" path="res://Scripts/Grabable.gd" id="1_hd4bm"]
+[ext_resource type="Script" path="res://Scripts/Tools/Pourable.gd" id="1_isl6f"]
 [ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="3_h6i6d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1gvh"]
@@ -40,8 +40,12 @@ shadow_mesh = SubResource("ArrayMesh_r0ajo")
 [sub_resource type="BoxShape3D" id="BoxShape3D_fai0r"]
 size = Vector3(0.251495, 0.356995, 0.228271)
 
-[node name="Pot" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
-script = ExtResource("1_hd4bm")
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_go56m"]
+radius = 0.141181
+height = 1.00736
+
+[node name="WaterJug" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
+script = ExtResource("1_isl6f")
 hovered_indicator = NodePath("Jug/HoverMesh")
 target_z = 1.0
 
@@ -62,3 +66,10 @@ surface_material_override/0 = ExtResource("3_h6i6d")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.173, 0)
 shape = SubResource("BoxShape3D_fai0r")
+
+[node name="PourableArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114932, 0, 0.103437)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PourableArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0460227, -0.148278, -0.0370427)
+shape = SubResource("CapsuleShape3D_go56m")

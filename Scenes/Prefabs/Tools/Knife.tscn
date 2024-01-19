@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ccru32x1knod6"]
 
-[ext_resource type="Script" path="res://Scripts/Knife.gd" id="1_gj13k"]
+[ext_resource type="Script" path="res://Scripts/Tools/Knife.gd" id="1_t0l6c"]
 [ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="2_6vcta"]
 [ext_resource type="Material" uid="uid://csyx73a8bn003" path="res://Materials/Shaders/VertexColor.tres" id="2_jso7y"]
 
@@ -44,7 +44,7 @@ radius = 0.023574
 height = 0.306646
 
 [node name="Knife" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
-script = ExtResource("1_gj13k")
+script = ExtResource("1_t0l6c")
 hovered_indicator = NodePath("Knife2/HoverMesh")
 grabbed_view = 1
 target_z = 0.8
