@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxxuiri77w32o"]
+[gd_scene load_steps=7 format=3 uid="uid://bxxuiri77w32o"]
 
 [ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_mxtva"]
+[ext_resource type="PackedScene" uid="uid://d2to6u3y71sk7" path="res://Scenes/Prefabs/Ingredients/Cut/CutCarrot.tscn" id="2_xs4vf"]
 [ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="3_1mqds"]
 [ext_resource type="PackedScene" uid="uid://c51rx18bjhlxr" path="res://Models/Ingredientts/Carrot.glb" id="3_ur2pj"]
 
@@ -16,6 +17,8 @@ radius = 0.0558365
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_mxtva")
+id = 1
+cut_variant = ExtResource("2_xs4vf")
 hovered_indicator = NodePath("HoveredMesh")
 target_z = 1.0
 

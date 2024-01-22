@@ -74,7 +74,7 @@ func release_grabbed():
 	grabbing = false
 	#switch_view(CameraPivot.VIEW.FRONT)
 
-const Grabbed_Mouse_Influence := 0.125
+@export var Grabbed_Mouse_Influence := 0.125
 const Swing_Speed_Threshold := 50.0
 func grabbed_movement(delta):
 	if !grabbing:
@@ -126,7 +126,6 @@ func switch_view(view:CameraPivot.VIEW):
 	
 	match view:
 		CameraPivot.VIEW.TOP:
-			print("viewTOP")
 			camera_pivot.switch_to_top_view()
 		CameraPivot.VIEW.FRONT:
 			camera_pivot.switch_to_front_view()

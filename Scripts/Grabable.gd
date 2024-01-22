@@ -19,8 +19,6 @@ func _physics_process(delta):
 	if grabbed:
 		current_rotation = Quaternion(transform.basis).slerp(Quaternion(), delta * 20.0)
 		transform.basis = Basis(current_rotation)
-		pass
-	pass
 	
 func grab():
 	grabbed = true;

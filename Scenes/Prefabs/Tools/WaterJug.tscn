@@ -46,6 +46,7 @@ height = 1.00736
 
 [node name="WaterJug" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
 script = ExtResource("1_isl6f")
+pourable_type = 2
 hovered_indicator = NodePath("Jug/HoverMesh")
 target_z = 1.0
 

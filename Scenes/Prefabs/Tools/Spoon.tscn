@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb1l5252r8frb"]
+
+[ext_resource type="Script" path="res://Scripts/Grabable.gd" id="1_jjqh6"]
+[ext_resource type="PackedScene" uid="uid://cv7kxhp424ff6" path="res://Models/Tools/Spoon.glb" id="2_hls80"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_72mrv"]
+size = Vector3(0.09, 0.156, 0.032)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c6vak"]
+size = Vector3(0.3506, 0.0055542, 0.012146)
+
+[node name="Spoon" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_jjqh6")
+grabbed_view = 1
+
+[node name="Spoon" parent="." instance=ExtResource("2_hls80")]
+transform = Transform3D(0.317073, -0.455996, 0.831584, 1.30385e-08, 0.876827, 0.480805, -0.948401, -0.15245, 0.278018, 0.0452444, 0.0475229, 0.011598)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.310357, -0.834114, 0.455996, 0.00387689, -0.48079, -0.876828, 0.950612, -0.270362, 0.15245, -0.0240244, -0.0111482, -0.0107561)
+shape = SubResource("BoxShape3D_72mrv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.774444, -0.548454, -0.31533, 0.578213, 0.815885, 0.00100701, 0.256721, -0.183108, 0.948981, 0.168138, 0.139218, 0.0524342)
+shape = SubResource("BoxShape3D_c6vak")

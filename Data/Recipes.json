@@ -1,0 +1,72 @@
+{
+	"sauteed_onion" : {
+		"id": "sauteed_onion",
+		"name": "Sautéed onion",
+		"category" : "COMPONENT",
+		"ingredients" : ["chopped_onion"],
+		"image" : "",
+	},
+	"sauteed_garlic" : {
+		"id": "sauteed_garlic",
+		"name": "Sautéed garlic",
+		"category" : "COMPONENT",
+		"ingredients" : ["chopped_garlic"],
+		"image" : "",
+	},
+	"sauteed_carrot" : {
+		"id": "sauteed_carrot",
+		"name": "Sautéed carrot",
+		"category" : "COMPONENT",
+		"ingredients" : ["chopped_carrot"],
+		"image" : "",
+	},
+	"sauteed_mushroom" : {
+		"id": "sauteed_mushroom",
+		"name": "Sautéed mushroom",
+		"category" : "COMPONENT",
+		"ingredients" : ["chopped_mushroom"],
+		"image" : "",
+	},
+	
+	"vegetable_broth" : {
+		"id": "vegetable_broth",
+		"name": "Vegetable Broth",
+		"category" : "COMPONENT",
+		"ingredients" : ["water", "soy_sauce", "chopped_garlic", "chopped_onion", "chopped_carrot", "green_leaves"],
+		"image" : "",
+	},
+	"cooked_noodles" : {
+		"id": "cooked_noodles",
+		"name": "Cooked Noodles",
+		"category" : "COMPONENT",
+		"ingredients" : ["water", "raw_noodles"],
+		"image" : "",
+	},
+	
+	
+	
+	"mushroom_plate" : {
+		"id": "mushroom_plate",
+		"name": "Mushroom Plate",
+		"category" : "STARTER",
+		"ingredients" : ["sauteed_onion", "sauteed_garlic","sauteed_mushrooms"],
+		"image" : "",
+	},
+	"vegetable_salad" : {
+		"id": "vegetable_salad",
+		"name": "Vegetable Salad",
+		"category" : "STARTER",
+		"ingredients" : ["chopped_tomato", "chopped_onion", "green_leaves", "chopped_carrot"],
+		"image" : "",
+	},
+	
+	
+	
+	"broth_noodles" : {
+		"id": "broth_noodles",
+		"name": "Brothy Noodles",
+		"category" : "MAINCOURSE",
+		"ingredients" : ["cooked_noodles", "vegetable_broth"],
+		"image" : "",
+	},
+}

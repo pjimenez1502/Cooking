@@ -49,10 +49,11 @@ shadow_mesh = SubResource("ArrayMesh_sjnso")
 [sub_resource type="BoxShape3D" id="BoxShape3D_odqqq"]
 size = Vector3(0.141312, 0.0477423, 0.145391)
 
-[node name="Tomato" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
+[node name="Cut_Tomato" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_cinjs")
+id = 6
 hovered_indicator = NodePath("HoverMesh")
 target_z = 1.0
 

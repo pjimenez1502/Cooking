@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwqrif2ueoej0"]
+
+[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_5gktv"]
+[ext_resource type="PackedScene" uid="uid://hfi7je6jejl6" path="res://Models/Ingredientts/Processed/Onion_Cut.glb" id="2_udp4c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_odqqq"]
+size = Vector3(0.19784, 0.0477423, 0.188691)
+
+[node name="Cut_Onion" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5gktv")
+id = 8
+target_z = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00463174, 0.023132, -0.00958011)
+shape = SubResource("BoxShape3D_odqqq")
+
+[node name="Onion_Cut" parent="." instance=ExtResource("2_udp4c")]

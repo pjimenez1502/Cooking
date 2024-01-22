@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://4x7a2i5exeff"]
+[gd_scene load_steps=14 format=3 uid="uid://4x7a2i5exeff"]
 
 [ext_resource type="Script" path="res://Scripts/Tools/Pot.gd" id="1_hiapu"]
 [ext_resource type="Material" uid="uid://csyx73a8bn003" path="res://Materials/Shaders/VertexColor.tres" id="2_2qv15"]
@@ -79,6 +79,9 @@ data = PackedVector3Array(-0.1565, 0, -0.0509, 0, 0, -0.1646, -0.0967, 0, -0.133
 [sub_resource type="BoxShape3D" id="BoxShape3D_0nkv8"]
 size = Vector3(0.414063, 0.226105, 0.381897)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ft0fw"]
+radius = 0.267794
+
 [node name="Pot" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
 script = ExtResource("1_hiapu")
 hovered_indicator = NodePath("Pot/HoverMesh")
@@ -118,3 +121,10 @@ visible = false
 [node name="POT_bubbles" parent="Contents" instance=ExtResource("5_yuhuk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0631567, 0)
 visible = false
+
+[node name="PourableArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0207977, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PourableArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.263239, 0)
+shape = SubResource("SphereShape3D_ft0fw")

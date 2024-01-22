@@ -1,9 +1,7 @@
-extends Grabable
+extends Pourable
 class_name Pot
 
 var heated := false
-var cook_progress: float
-
 
 func _physics_process(delta):
 	progress_cooking(delta)
@@ -14,6 +12,7 @@ var current_content = {
 	"NOODLES" : false,
 	"COOKED_NOODLES" : false
 }
+
 @onready var content_refecences = {
 	"WATER" : 			{"object": $Contents/POT_water, "cook_time": 100, "result" : "BOLING_BUBBLES"},
 	"BOILING_BUBBLES": 	{"object": $Contents/POT_water,},
@@ -21,7 +20,7 @@ var current_content = {
 	"COOKED_NOODLES" : 	{"object": $Contents/POT_water,},
 }
 
-func add_content(pour : FoodDictionary.POURABLE_TYPE):
+func add_pourable(pour : FoodDictionary.POURABLE_TYPE):
 	for content_key in current_content:
 		if content_key == FoodDictionary.POURABLE_TYPE.keys()[pour]:
 			#print(content_key, " - ", FoodDictionary.POURABLE_TYPE.keys()[pour])
@@ -33,4 +32,4 @@ func add_content(pour : FoodDictionary.POURABLE_TYPE):
 
 func progress_cooking(delta):
 	if heated:
-		cook_progress += delta
+		pass

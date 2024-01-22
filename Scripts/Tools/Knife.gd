@@ -20,4 +20,4 @@ func _on_cut_area_body_entered(body):
 		return
 	print(body)
 	body.chop()
-	
+

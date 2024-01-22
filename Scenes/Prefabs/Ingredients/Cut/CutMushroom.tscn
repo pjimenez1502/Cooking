@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce2toto5tf3jr"]
+
+[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_6u8jr"]
+[ext_resource type="PackedScene" uid="uid://5ai8igpmacln" path="res://Models/Ingredientts/Processed/Mushroom_Cut.glb" id="2_dsy5x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_odqqq"]
+size = Vector3(0.187644, 0.0477423, 0.174099)
+
+[node name="Cut_Mushroom" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_6u8jr")
+id = 10
+target_z = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0442621, 0.023132, -0.00228414)
+shape = SubResource("BoxShape3D_odqqq")
+
+[node name="Mushroom_Cut" parent="." instance=ExtResource("2_dsy5x")]

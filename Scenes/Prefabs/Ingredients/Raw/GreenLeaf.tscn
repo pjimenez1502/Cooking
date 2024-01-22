@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bemtfjqy7junx"]
+
+[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_x2eek"]
+[ext_resource type="PackedScene" uid="uid://dg5vsn7rsjs4h" path="res://Models/Ingredientts/GreenLeaf.glb" id="2_rdq8y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rbeu4"]
+size = Vector3(0.372025, 0.0289421, 0.217194)
+
+[node name="GreenLeaf" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_x2eek")
+id = 5
+target_z = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00926971, 0.00461006, 0.00291443)
+shape = SubResource("BoxShape3D_rbeu4")
+
+[node name="GreenLeaf" parent="." instance=ExtResource("2_rdq8y")]

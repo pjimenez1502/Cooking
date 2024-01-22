@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c6psggx8qgdat"]
+[gd_scene load_steps=31 format=3 uid="uid://c6psggx8qgdat"]
 
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="1_8arvf"]
 [ext_resource type="Material" uid="uid://clcycw1xg1ngh" path="res://Materials/GrassMaterial.tres" id="1_hdk40"]
@@ -8,13 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://bswu8vgi1ydgp" path="res://Models/Environment/IngredientSack.glb" id="5_l7wbo"]
 [ext_resource type="Script" path="res://Models/Environment/IngredientSack.gd" id="6_phygn"]
 [ext_resource type="PackedScene" uid="uid://dus6mepmxmcdr" path="res://Scenes/Prefabs/Tools/Pan.tscn" id="8_q2hjc"]
-[ext_resource type="Script" path="res://Scenes/StoveArea.gd" id="8_ywcjl"]
+[ext_resource type="Script" path="res://Scripts/StoveArea.gd" id="8_ywcjl"]
 [ext_resource type="PackedScene" uid="uid://4x7a2i5exeff" path="res://Scenes/Prefabs/Tools/Pot.tscn" id="9_gam3w"]
 [ext_resource type="PackedScene" uid="uid://dono37seo1eit" path="res://Scenes/Prefabs/Tools/WaterJug.tscn" id="10_nhnpx"]
 [ext_resource type="PackedScene" uid="uid://ccru32x1knod6" path="res://Scenes/Prefabs/Tools/Knife.tscn" id="10_ue45u"]
 [ext_resource type="PackedScene" uid="uid://p4ibv4e8ysux" path="res://Scenes/Prefabs/Tools/PotLid.tscn" id="12_16te8"]
 [ext_resource type="PackedScene" uid="uid://coq2b750c2so1" path="res://Scenes/Prefabs/Tools/Ladle.tscn" id="13_e2g10"]
 [ext_resource type="PackedScene" uid="uid://cpaljoatj0eg0" path="res://Scenes/Prefabs/Ingredients/Raw/Noodle.tscn" id="14_hbcwu"]
+[ext_resource type="PackedScene" uid="uid://bv0iqmgq3tltj" path="res://Scenes/Prefabs/Tools/Bottle_Soy_Sauce.tscn" id="15_fqll8"]
+[ext_resource type="PackedScene" uid="uid://daifus18tkr25" path="res://Scenes/Prefabs/Ingredients/Raw/Mushroom.tscn" id="16_ec6ma"]
+[ext_resource type="PackedScene" uid="uid://bb1l5252r8frb" path="res://Scenes/Prefabs/Tools/Spoon.tscn" id="16_iymc8"]
+[ext_resource type="PackedScene" uid="uid://pel7gn02j75f" path="res://Scenes/Prefabs/Tools/Bowl.tscn" id="17_ax1lg"]
+[ext_resource type="PackedScene" uid="uid://bemtfjqy7junx" path="res://Scenes/Prefabs/Ingredients/Raw/GreenLeaf.tscn" id="18_w7uw0"]
+[ext_resource type="PackedScene" uid="uid://bluh10ckcjpb3" path="res://Models/Environment/Dungeon.glb" id="21_vh0xr"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_chu74"]
 size = Vector2(20, 20)
@@ -72,12 +78,32 @@ size = Vector3(3.105, 1.04102, 1.145)
 
 [node name="Base" type="Node" parent="."]
 
+[node name="Dungeon" type="Node" parent="Base"]
+
+[node name="Dungeon" parent="Base/Dungeon" instance=ExtResource("21_vh0xr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Base/Dungeon/Dungeon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.73969, 1.98666, -2.6363)
+light_color = Color(1, 0.517647, 0.368627, 1)
+light_energy = 16.0
+omni_range = 3.55499
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Base/Dungeon/Dungeon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.73969, 1.98666, 2.69031)
+light_color = Color(1, 0.517647, 0.368627, 1)
+light_energy = 16.0
+omni_range = 3.55499
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Base/Dungeon"]
+transform = Transform3D(-0.975867, 0.155291, 0.153518, 0.0770616, -0.412889, 0.907515, 0.204315, 0.897445, 0.390958, 0, 4.84662, 4.34383)
+light_bake_mode = 0
+
 [node name="Ground" type="CSGMesh3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00409633, 0)
+visible = false
 material_override = ExtResource("1_hdk40")
 mesh = SubResource("PlaneMesh_chu74")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Base"]
-transform = Transform3D(1, 0, 0, 0, -0.703035, 0.711155, 0, -0.711155, -0.703035, 0, 4.84662, -2.65617)
 
 [node name="CameraPivot" type="Node3D" parent="Base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.971527, 0.17652)
@@ -189,6 +215,12 @@ script = ExtResource("8_ywcjl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00155276, 0)
 shape = SubResource("BoxShape3D_1byxr")
 
+[node name="Stove_L_Area" type="Area3D" parent="Base/Table/CookingAreas/StoveTop_R"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Base/Table/CookingAreas/StoveTop_R/Stove_L_Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0692228, 0)
+shape = SubResource("SphereShape3D_pg4qr")
+
 [node name="CuttingBoard" type="StaticBody3D" parent="Base/Table/CookingAreas"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.756666, 0.906359, 0.600512)
 
@@ -202,9 +234,6 @@ shape = SubResource("BoxShape3D_ispnc")
 
 [node name="Interactuable" type="Node" parent="."]
 
-[node name="Pan" parent="Interactuable" instance=ExtResource("8_q2hjc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.455424, 1.04631, 0.568778)
-
 [node name="WaterJug" parent="Interactuable" instance=ExtResource("10_nhnpx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.697121, 0.871315, 0.306313)
 
@@ -215,14 +244,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0916346, 0.955513, 0.79639
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.936439, 0.964464, 0.602091)
 
 [node name="PotLid" parent="Interactuable" instance=ExtResource("12_16te8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.969979, 1.31439, 0.616213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38142, 0.972371, 0.688279)
 
-[node name="Node3D" parent="." instance=ExtResource("13_e2g10")]
+[node name="Ladle" parent="Interactuable" instance=ExtResource("13_e2g10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.437412, 0.871733, 0.486171)
+
+[node name="Pan" parent="Interactuable" instance=ExtResource("8_q2hjc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.433513, 0.965241, 0.641011)
+
+[node name="SoyBottle" parent="Interactuable" instance=ExtResource("15_fqll8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.286111, 0.871734, 0.228562)
+pourable_type = 2
+
+[node name="Spoon" parent="Interactuable" instance=ExtResource("16_iymc8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.841177, 0.960413, 0.339904)
+
+[node name="Bowl" parent="Interactuable" instance=ExtResource("17_ax1lg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22381, 0.871734, 0.109564)
 
 [node name="Noodles" parent="." instance=ExtResource("14_hbcwu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00115433, 1.13118, 0.137963)
 collision_mask = 2
+
+[node name="Mushroom" parent="." instance=ExtResource("16_ec6ma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409494, 0.871734, 0.134893)
+
+[node name="Mushroom2" parent="." instance=ExtResource("16_ec6ma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.551557, 0.871734, 0.0413741)
+
+[node name="GreenLeaf" parent="." instance=ExtResource("18_w7uw0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23437, 0.871734, 0.520398)
 
 [connection signal="input_event" from="Base/Table/IngredientSacks/SackBody TOMATO/CollisionShape3D" to="Base/Table/IngredientSacks/SackBody TOMATO" method="_on_input_event"]
 [connection signal="mouse_entered" from="Base/Table/IngredientSacks/SackBody TOMATO/CollisionShape3D" to="Base/Table/IngredientSacks/SackBody TOMATO" method="set_hovered" binds= [true]]
@@ -235,3 +286,5 @@ collision_mask = 2
 [connection signal="mouse_exited" from="Base/Table/IngredientSacks/SackBody CARROT/CollisionShape3D" to="Base/Table/IngredientSacks/SackBody CARROT" method="set_hovered" binds= [false]]
 [connection signal="body_entered" from="Base/Table/CookingAreas/StoveTop_L/Stove_L_Area" to="Base/Table/CookingAreas/StoveTop_L" method="_on_stove_l_area_body_entered"]
 [connection signal="body_exited" from="Base/Table/CookingAreas/StoveTop_L/Stove_L_Area" to="Base/Table/CookingAreas/StoveTop_L" method="_on_stove_l_area_body_exited"]
+[connection signal="body_entered" from="Base/Table/CookingAreas/StoveTop_R/Stove_L_Area" to="Base/Table/CookingAreas/StoveTop_L" method="_on_stove_l_area_body_entered"]
+[connection signal="body_exited" from="Base/Table/CookingAreas/StoveTop_R/Stove_L_Area" to="Base/Table/CookingAreas/StoveTop_L" method="_on_stove_l_area_body_exited"]

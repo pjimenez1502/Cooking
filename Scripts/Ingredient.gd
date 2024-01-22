@@ -2,6 +2,7 @@ extends Grabable
 
 class_name Ingredient
 
+@export var id : FoodDictionary.IngredientID
 var target_node
 func _ready():
 	target_node = get_parent()

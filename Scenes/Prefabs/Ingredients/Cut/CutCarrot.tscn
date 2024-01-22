@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2to6u3y71sk7"]
+
+[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_ttcuj"]
+[ext_resource type="PackedScene" uid="uid://j0rfqab1b0w6" path="res://Models/Ingredientts/Processed/Carrot_Cut.glb" id="2_sorbp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_odqqq"]
+size = Vector3(0.187644, 0.0477423, 0.174099)
+
+[node name="Cut_Carrot" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ttcuj")
+id = 7
+target_z = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00469799, 0.023132, -0.0271855)
+shape = SubResource("BoxShape3D_odqqq")
+
+[node name="Carrot_Cut" parent="." instance=ExtResource("2_sorbp")]

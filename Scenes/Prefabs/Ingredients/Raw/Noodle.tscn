@@ -15,6 +15,7 @@ size = Vector3(0.130249, 0.274841, 0.0593948)
 [node name="Noodles" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
 collision_layer = 2
 script = ExtResource("1_pwenu")
+id = 12
 hovered_indicator = NodePath("HoveredMesh")
 target_z = 1.0
 
