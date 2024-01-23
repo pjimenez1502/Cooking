@@ -1,7 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://c6psggx8qgdat"]
+[gd_scene load_steps=32 format=3 uid="uid://c6psggx8qgdat"]
 
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="1_8arvf"]
-[ext_resource type="Script" path="res://Scripts/Guest_Manager.gd" id="1_83nuh"]
 [ext_resource type="Material" uid="uid://clcycw1xg1ngh" path="res://Materials/GrassMaterial.tres" id="1_hdk40"]
 [ext_resource type="Script" path="res://Scripts/CameraPivot.gd" id="2_r0yoa"]
 [ext_resource type="PackedScene" uid="uid://cbi6wolhq1su8" path="res://Models/Environment/Table.glb" id="4_5b1i8"]
@@ -21,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bemtfjqy7junx" path="res://Scenes/Prefabs/Ingredients/Raw/GreenLeaf.tscn" id="18_w7uw0"]
 [ext_resource type="PackedScene" uid="uid://bluh10ckcjpb3" path="res://Models/Environment/Dungeon.glb" id="21_vh0xr"]
 [ext_resource type="PackedScene" uid="uid://cysuuewg7dhus" path="res://Scenes/Prefabs/Guest.tscn" id="22_mufpv"]
+[ext_resource type="Script" path="res://Scenes/GuestsManager.gd" id="22_sywdw"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_chu74"]
 size = Vector2(20, 20)
@@ -77,23 +77,7 @@ size = Vector3(3.105, 1.04102, 1.145)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kx6gr"]
 size = Vector3(3.25412, 1.42334, 1)
 
-[sub_resource type="GDScript" id="GDScript_16e0p"]
-script/source = "extends Node
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
-
 [node name="World" type="Node3D"]
-script = ExtResource("1_83nuh")
-guest_prefab = ExtResource("22_mufpv")
 
 [node name="Base" type="Node" parent="."]
 
@@ -348,23 +332,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22381, 0.871734, 0.109564)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23437, 0.871734, 0.520398)
 
 [node name="Guests" type="Node" parent="."]
-script = SubResource("GDScript_16e0p")
+script = ExtResource("22_sywdw")
 
 [node name="Guest" parent="Guests" instance=ExtResource("22_mufpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20068, 0, -0.666563)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35, 0, -0.667)
 
 [node name="Guest2" parent="Guests" instance=ExtResource("22_mufpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.252244, 0, -0.666563)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, -0.667)
 
 [node name="Guest3" parent="Guests" instance=ExtResource("22_mufpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50751, 0, -0.6832)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, -0.683)
 
 [node name="Guest4" parent="Guests" instance=ExtResource("22_mufpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38372, 0, -0.688746)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35, 0, -0.689)
 
 [connection signal="input_event" from="Base/Table/IngredientSacks/SackBody TOMATO/CollisionShape3D" to="Base/Table/IngredientSacks/SackBody TOMATO" method="_on_input_event"]
 [connection signal="mouse_entered" from="Base/Table/IngredientSacks/SackBody TOMATO/CollisionShape3D" to="Base/Table/IngredientSacks/SackBody TOMATO" method="set_hovered" binds= [true]]

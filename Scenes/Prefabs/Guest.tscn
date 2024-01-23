@@ -1,37 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://cysuuewg7dhus"]
+[gd_scene load_steps=4 format=3 uid="uid://cysuuewg7dhus"]
 
-[ext_resource type="Texture2D" uid="uid://ct58jftlronfr" path="res://Materials/Textures/Guests/Guest.png" id="1_0085i"]
-[ext_resource type="Script" path="res://Scenes/Prefabs/Guest.gd" id="1_vvaxm"]
-[ext_resource type="Texture2D" uid="uid://bu7h40pjoi4b6" path="res://Materials/Textures/Guests/Guest_old_man.png" id="2_b3geg"]
-[ext_resource type="Texture2D" uid="uid://dmrxkn6bvkdo7" path="res://Materials/Textures/Guests/Guest_vampire.png" id="3_6a785"]
-[ext_resource type="Texture2D" uid="uid://ccle2ianaeihy" path="res://Materials/Textures/Guests/Guest_skeleton.png" id="4_u7x2d"]
+[ext_resource type="Script" path="res://Scripts/Guest.gd" id="1_vvaxm"]
+[ext_resource type="Texture2D" uid="uid://x5a88uguh4gy" path="res://Materials/Textures/Guests/Clothes/Long_Robes.png" id="2_u8jda"]
+[ext_resource type="Texture2D" uid="uid://cfwmrxkctprxq" path="res://Materials/Textures/Guests/Faces/Guest_skeleton.png" id="3_oxva4"]
 
 [node name="Guest" type="Node3D"]
 script = ExtResource("1_vvaxm")
 
-[node name="Guest" type="Sprite3D" parent="."]
+[node name="Clothes" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65737, 0)
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 billboard = 2
 texture_filter = 0
-texture = ExtResource("1_0085i")
+texture = ExtResource("2_u8jda")
 
-[node name="Man1" type="Sprite3D" parent="."]
+[node name="Face" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65737, 0.0104774)
-visible = false
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 billboard = 2
 texture_filter = 0
-texture = ExtResource("2_b3geg")
-
-[node name="Vampire" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65737, 0.0104774)
-visible = false
-billboard = 2
-texture_filter = 0
-texture = ExtResource("3_6a785")
-
-[node name="Skeleton" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65737, 0.0104774)
-visible = false
-billboard = 2
-texture_filter = 0
-texture = ExtResource("4_u7x2d")
+texture = ExtResource("3_oxva4")

@@ -4,6 +4,7 @@ class_name Pan
 var heated := false
 
 func _physics_process(delta):
+	super._physics_process(delta)
 	progress_cooking(delta)
 	
 var current_content = {

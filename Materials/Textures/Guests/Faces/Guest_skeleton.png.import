@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu7h40pjoi4b6"
-path="res://.godot/imported/Guest_old_man.png-198ccfa975bc3337b99841777d8b8b4c.ctex"
+uid="uid://cfwmrxkctprxq"
+path="res://.godot/imported/Guest_skeleton.png-0a45330b864d60591bf394166bd929ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Materials/Textures/Guests/Guest_old_man.png"
-dest_files=["res://.godot/imported/Guest_old_man.png-198ccfa975bc3337b99841777d8b8b4c.ctex"]
+source_file="res://Materials/Textures/Guests/Faces/Guest_skeleton.png"
+dest_files=["res://.godot/imported/Guest_skeleton.png-0a45330b864d60591bf394166bd929ec.ctex"]
 
 [params]
 

@@ -3,12 +3,14 @@ class_name IngredientSack
 
 @export var hovered_indicator : Node3D
 
-enum Ingredients { TOMATO, CARROT, ONION }
+enum Ingredients { TOMATO, CARROT, ONION, POTATO, MUSHROOM }
 @export var sack_ingredient : Ingredients
 var ingredient_dict = {
 	"TOMATO" : "res://Scenes/Prefabs/Ingredients/Raw/Tomato.tscn",
 	"CARROT" : "res://Scenes/Prefabs/Ingredients/Raw/Carrot.tscn",
 	"ONION" : "res://Scenes/Prefabs/Ingredients/Raw/Onion.tscn",
+	"POTATO" : "",
+	"MUSHROOM": "res://Scenes/Prefabs/Ingredients/Raw/Mushroom.tscn",
 }
 
 var ingredient_prefab
