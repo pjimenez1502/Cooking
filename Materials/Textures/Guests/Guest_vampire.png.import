@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c50vdw7ejj1yg"
-path.s3tc="res://.godot/imported/Client_WipSprite.png-658ce3330f530de7ee8a9b014e1339c4.s3tc.ctex"
+uid="uid://dmrxkn6bvkdo7"
+path="res://.godot/imported/Guest_vampire.png-e1f707f9036ca3f69e2cf69b4da9e7a8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Materials/Textures/UI/Client_WipSprite.png"
-dest_files=["res://.godot/imported/Client_WipSprite.png-658ce3330f530de7ee8a9b014e1339c4.s3tc.ctex"]
+source_file="res://Materials/Textures/Guests/Guest_vampire.png"
+dest_files=["res://.godot/imported/Guest_vampire.png-e1f707f9036ca3f69e2cf69b4da9e7a8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
