@@ -9,7 +9,7 @@ var ingredient_dict = {
 	"TOMATO" : "res://Scenes/Prefabs/Ingredients/Raw/Tomato.tscn",
 	"CARROT" : "res://Scenes/Prefabs/Ingredients/Raw/Carrot.tscn",
 	"ONION" : "res://Scenes/Prefabs/Ingredients/Raw/Onion.tscn",
-	"POTATO" : "",
+	"POTATO" : "res://Scenes/Prefabs/Ingredients/Raw/Potato.tscn",
 	"MUSHROOM": "res://Scenes/Prefabs/Ingredients/Raw/Mushroom.tscn",
 }
 
@@ -33,7 +33,7 @@ func set_hovered(value):
 	hovered_indicator.visible = value
 
 
-func _on_input_event(camera, event, position, normal, shape_idx):
+func _on_input_event(_camera, event, _position, _normal, _shape_idx):
 	if event.is_action_pressed("LeftClick"):
 		instantiate_ingredient()
 

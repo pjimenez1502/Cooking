@@ -10,9 +10,8 @@ size = Vector3(0.0741042, 0.356995, 0.0805588)
 radius = 0.111646
 height = 0.962231
 
-[node name="SoyBottle" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
+[node name="SoyBottle" type="RigidBody3D"]
 script = ExtResource("1_rqhfu")
-hovered_indicator = NodePath("")
 target_z = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

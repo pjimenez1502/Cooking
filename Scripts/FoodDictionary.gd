@@ -3,8 +3,8 @@ class_name FoodDictionary
 
 enum POURABLE_TYPE { WATER, RICE, SOY}
 
-enum IngredientID {tomato, carrot, onion, garlic, mushroom, green_leaves,
-				chopped_tomato, chopped_carrot, chopped_onion, chopped_garlic, chopped_mushroom,
+enum IngredientID {tomato, carrot, onion, garlic, mushroom, potato, green_leaves,
+				chopped_tomato, chopped_carrot, chopped_onion, chopped_garlic, chopped_mushroom, chopped_potato,
 				soy_sauce,
 				raw_noodles, cooked_noodles,
 					}

@@ -44,4 +44,11 @@
 		"ingredients" : ["chopped_tomato", "chopped_onion", "green_leaves", "chopped_carrot"],
 		"image" : "",
 	},
+	
+	"stew" : {
+		"id": "stew",
+		"name": "Stew",
+		"category": "MAIN",
+		"ingredients": ["stewed_potato", "stewed_onion", "stewed_carrot", "stewed_tomato", "stewed_meat",]
+	}
 }

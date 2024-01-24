@@ -27,8 +27,9 @@ func _ready():
 	walking = true
 
 func _physics_process(delta):
-	position = lerp(position, target_position, delta * 2)
-	face.transparency = lerp(face.transparency, 1.0, delta*2)
+	#position = lerp(position, target_position, delta * 1)
+	position = position.move_toward(target_position, delta * 2)
+	face.transparency = lerp(face.transparency, 1.0, delta * 1)
 	
 	await get_tree().create_timer(1.5).timeout
 	walking = false

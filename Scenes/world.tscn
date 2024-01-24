@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c6psggx8qgdat"]
+[gd_scene load_steps=32 format=3 uid="uid://c6psggx8qgdat"]
 
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="1_8arvf"]
 [ext_resource type="Script" path="res://Scripts/Guest_Manager.gd" id="1_83nuh"]
@@ -7,13 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://cbi6wolhq1su8" path="res://Models/Environment/Table.glb" id="4_5b1i8"]
 [ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="4_ykmse"]
 [ext_resource type="PackedScene" uid="uid://bswu8vgi1ydgp" path="res://Models/Environment/IngredientSack.glb" id="5_l7wbo"]
-[ext_resource type="Script" path="res://Models/Environment/IngredientSack.gd" id="6_phygn"]
+[ext_resource type="Script" path="res://Scripts/IngredientSack.gd" id="6_phygn"]
 [ext_resource type="PackedScene" uid="uid://dus6mepmxmcdr" path="res://Scenes/Prefabs/Tools/Pan.tscn" id="8_q2hjc"]
 [ext_resource type="Script" path="res://Scripts/StoveArea.gd" id="8_ywcjl"]
 [ext_resource type="PackedScene" uid="uid://4x7a2i5exeff" path="res://Scenes/Prefabs/Tools/Pot.tscn" id="9_gam3w"]
 [ext_resource type="PackedScene" uid="uid://dono37seo1eit" path="res://Scenes/Prefabs/Tools/WaterJug.tscn" id="10_nhnpx"]
 [ext_resource type="PackedScene" uid="uid://ccru32x1knod6" path="res://Scenes/Prefabs/Tools/Knife.tscn" id="10_ue45u"]
-[ext_resource type="PackedScene" uid="uid://p4ibv4e8ysux" path="res://Scenes/Prefabs/Tools/PotLid.tscn" id="12_16te8"]
 [ext_resource type="PackedScene" uid="uid://coq2b750c2so1" path="res://Scenes/Prefabs/Tools/Ladle.tscn" id="13_e2g10"]
 [ext_resource type="PackedScene" uid="uid://bv0iqmgq3tltj" path="res://Scenes/Prefabs/Tools/Bottle_Soy_Sauce.tscn" id="15_fqll8"]
 [ext_resource type="PackedScene" uid="uid://bb1l5252r8frb" path="res://Scenes/Prefabs/Tools/Spoon.tscn" id="16_iymc8"]
@@ -78,18 +77,6 @@ size = Vector3(3.105, 1.04102, 1.145)
 size = Vector3(3.25412, 1.42334, 1)
 
 [sub_resource type="GDScript" id="GDScript_16e0p"]
-script/source = "extends Node
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_83nuh")
@@ -215,7 +202,7 @@ shape = SubResource("SphereShape3D_6ngvq")
 transform = Transform3D(0.711284, 0, 0.366163, 0, 0.8, 0, -0.366163, 0, 0.711284, -1.41332, 1.17937, 0.0184716)
 script = ExtResource("6_phygn")
 hovered_indicator = NodePath("IngredientSackHovered")
-sack_ingredient = 4
+sack_ingredient = 3
 
 [node name="IngredientSack" parent="Base/Table/IngredientSacks/SackBody POTATO" instance=ExtResource("5_l7wbo")]
 
@@ -324,9 +311,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.396082, 0.955513, 0.796392)
 
 [node name="Pot" parent="Interactuable" instance=ExtResource("9_gam3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.936439, 0.964464, 0.602091)
-
-[node name="PotLid" parent="Interactuable" instance=ExtResource("12_16te8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38142, 0.972371, 0.688279)
 
 [node name="Ladle" parent="Interactuable" instance=ExtResource("13_e2g10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.646314, 0.871733, 0.300165)

@@ -1,15 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://drg5j8frdg07l"]
+[gd_scene load_steps=9 format=3 uid="uid://cks0ff0lpit2b"]
 
-[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_cinjs"]
-[ext_resource type="Texture2D" uid="uid://g8ccbn0ru8yo" path="res://Models/Ingredientts/Processed/Tomato_Cut_Tomato.png" id="2_hu33r"]
-[ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="3_4ci7i"]
-[ext_resource type="PackedScene" uid="uid://0ryexuxmamxq" path="res://Models/Ingredientts/Processed/Tomato_Cut.glb" id="4_fes4s"]
+[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_aym60"]
+[ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="2_vme6k"]
+[ext_resource type="Texture2D" uid="uid://g8ccbn0ru8yo" path="res://Models/Ingredientts/Processed/Tomato_Cut_Tomato.png" id="3_xu5w4"]
+[ext_resource type="PackedScene" uid="uid://d25e7vqeynlnu" path="res://Models/Ingredientts/Processed/Potato_Cut.glb" id="4_x7qmv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbtsa"]
 resource_name = "Tomato"
 cull_mode = 2
 shading_mode = 0
-albedo_texture = ExtResource("2_hu33r")
+albedo_texture = ExtResource("3_xu5w4")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sjnso"]
@@ -49,17 +49,18 @@ shadow_mesh = SubResource("ArrayMesh_sjnso")
 [sub_resource type="BoxShape3D" id="BoxShape3D_odqqq"]
 size = Vector3(0.141312, 0.0477423, 0.145391)
 
-[node name="Cut_Tomato" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
+[node name="Cut_Potato" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_cinjs")
+script = ExtResource("1_aym60")
+id = 12
 hovered_indicator = NodePath("HoverMesh")
 target_z = 1.0
 
 [node name="HoverMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
 visible = false
-material_override = ExtResource("3_4ci7i")
+material_override = ExtResource("2_vme6k")
 mesh = SubResource("ArrayMesh_q15bi")
 skeleton = NodePath("")
 
@@ -67,4 +68,4 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00589538, 0.023132, -0.0128906)
 shape = SubResource("BoxShape3D_odqqq")
 
-[node name="Tomato_Cut2" parent="." instance=ExtResource("4_fes4s")]
+[node name="Potato_Cut" parent="." instance=ExtResource("4_x7qmv")]

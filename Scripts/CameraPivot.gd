@@ -11,6 +11,7 @@ var target_rotation = front_view_camera_rotation
 
 func _process(delta):
 	rotation.x = lerp(rotation.x, deg_to_rad(target_rotation), camera_rotation_speed * delta)
+	pass
 
 func switch_to_top_view():
 	current_view = VIEW.TOP

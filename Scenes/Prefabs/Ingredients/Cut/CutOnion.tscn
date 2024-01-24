@@ -10,7 +10,7 @@ size = Vector3(0.19784, 0.0477423, 0.188691)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_5gktv")
-id = 8
+id = 9
 target_z = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

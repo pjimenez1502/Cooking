@@ -10,7 +10,6 @@ size = Vector3(0.372025, 0.0289421, 0.217194)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_x2eek")
-id = 5
 target_z = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
