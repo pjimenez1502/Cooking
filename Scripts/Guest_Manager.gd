@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 @export var guest_prefab : PackedScene
 
@@ -8,7 +8,7 @@ var guest_slots = {
 	2:{"available": true, "position": -0.45,},
 	3:{"available": true, "position": -1.3,},
 }
-@onready var guests_parent = $Guests
+@onready var guests_parent = $"."
 
 var time_between_spawns = 16
 var guest_spawn_timer

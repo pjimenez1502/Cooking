@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://4x7a2i5exeff"]
+[gd_scene load_steps=10 format=3 uid="uid://4x7a2i5exeff"]
 
 [ext_resource type="Script" path="res://Scripts/Tools/Pot.gd" id="1_hiapu"]
 [ext_resource type="Material" uid="uid://csyx73a8bn003" path="res://Materials/Shaders/VertexColor.tres" id="2_2qv15"]
-[ext_resource type="PackedScene" uid="uid://crlaka20ia6pp" path="res://Models/Tools/Contents/POT_water.glb" id="4_2d341"]
-[ext_resource type="PackedScene" uid="uid://c3hy5j7qy4es1" path="res://Models/Tools/Contents/POT_bubbles.glb" id="5_yuhuk"]
+[ext_resource type="PackedScene" uid="uid://dnfwu07bq3c1x" path="res://Models/Tools/Contents/POT_Contents.glb" id="3_6p8bo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ie6gt"]
 vertex_color_use_as_albedo = true
@@ -65,16 +64,6 @@ surface_material_override/0 = ExtResource("2_2qv15")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000488207, 0.0666274, -0.000175461)
 shape = SubResource("BoxShape3D_0nkv8")
 
-[node name="Contents" type="Node3D" parent="."]
-
-[node name="POT_water" parent="Contents" instance=ExtResource("4_2d341")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.061297, 0)
-visible = false
-
-[node name="POT_bubbles" parent="Contents" instance=ExtResource("5_yuhuk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0631567, 0)
-visible = false
-
 [node name="PourableArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0207977, 0)
 
@@ -90,3 +79,5 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IngredientCapture"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00633442, 0)
 shape = SubResource("CylinderShape3D_73jbx")
+
+[node name="POT_Contents" parent="." instance=ExtResource("3_6p8bo")]

@@ -49,6 +49,6 @@
 		"id": "stew",
 		"name": "Stew",
 		"category": "MAIN",
-		"ingredients": ["stewed_potato", "stewed_onion", "stewed_carrot", "stewed_tomato", "stewed_meat",]
+		"ingredients": ["chopped_potato", "sauteed_onion", "sauteed_carrot", "sauteed_tomato", "sauteed_meat",]
 	}
 }

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cbi6wolhq1su8"
-path="res://.godot/imported/Table.glb-49225a152dcbe2da3e4d3f96f4785c2f.scn"
+uid="uid://rea07j57ot6p"
+path="res://.godot/imported/Meat.glb-a54a9d9e8d2160245d1f8373fbb1ef32.scn"
 
 [deps]
 
-source_file="res://Models/Environment/Table.glb"
-dest_files=["res://.godot/imported/Table.glb-49225a152dcbe2da3e4d3f96f4785c2f.scn"]
+source_file="res://Models/Ingredientts/Meat.glb"
+dest_files=["res://.godot/imported/Meat.glb-a54a9d9e8d2160245d1f8373fbb1ef32.scn"]
 
 [params]
 
@@ -29,13 +29,6 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"materials": {
-"Table": {
-"use_external/enabled": true,
-"use_external/path": "res://Materials/Environment/Table.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

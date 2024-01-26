@@ -3,42 +3,47 @@ extends Camera3D
 @onready var camera_pivot = $".."
 var mouse = Vector2()
 var hovered: Grabable
-var grabbing := false
+var grabbed: Grabable
 
-
-var prev_mouse_position
-var next_mouse_position
+var prev_mouse_position #TODO: DELETE
+var next_mouse_position #TODO: DELETE
 
 func _ready():
 	pass # Replace with function body.
-	
+
 func _physics_process(delta):
 	check_hover()
 	grabbed_movement(delta)
 
+ 
+
 func _input(event):
 	if event is InputEventMouse:
 		mouse = event.position
-	if !hovered:
-		return
+	
 	if event.is_action_pressed("LeftClick"):
-		prev_mouse_position = get_viewport().get_mouse_position()
-		grab_hovered()
-	if Input.is_action_just_released("LeftClick"):
-		release_grabbed()
+		if !grabbed:
+			check_grab_ingredientsack()
+			
+			prev_mouse_position = get_viewport().get_mouse_position()
+			grab_hovered()
+		elif hovered_mousearea and hovered_mousearea.check_area_compatible(grabbed.compatible_areas):
+			release_grabbed(hovered_mousearea)
+		
+	
 	
 	if event.is_action_pressed("RightClick"):
-		if grabbing:
+		if grabbed:
 			hovered.use()
 
 func check_hover():
-	if grabbing:
+	if grabbed:
 		return
 	
 	var worldspace = get_world_3d().direct_space_state
 	var start = project_ray_origin(mouse)
 	var end = project_position(mouse, 1000)
-	var result = worldspace.intersect_ray(PhysicsRayQueryParameters3D.create(start, end))
+	var result = worldspace.intersect_ray(PhysicsRayQueryParameters3D.create(start, end, 1))
 	
 	if !result || !result.collider:
 		clearHovered()
@@ -62,40 +67,52 @@ func clearHovered():
 		hovered = null
 
 func grab_hovered():
+	print(hovered)
 	if !hovered:
 		return
-	switch_view(hovered.grabbed_view)
+	grabbed = hovered
 	hovered.grab()
-	grabbing = true
-	pass
+	#switch_view(hovered.grabbed_view)
 
-func release_grabbed():
-	hovered.release()
-	grabbing = false
+func release_grabbed(hovered_mousearea):
+	hovered_mousearea.set_available(false)
+	grabbed.cooking_area = hovered_mousearea
+	grabbed.release()
+	hovered = null
+	grabbed = null
 	#switch_view(CameraPivot.VIEW.FRONT)
 
-@export var Grabbed_Mouse_Influence := 0.125
-const Swing_Speed_Threshold := 50.0
+var hovered_mousearea
 func grabbed_movement(delta):
-	if !grabbing:
+	if !grabbed:
 		return
-		
-	next_mouse_position = get_viewport().get_mouse_position()
-	hovered.position.x += ((next_mouse_position.x - prev_mouse_position.x) * Grabbed_Mouse_Influence * delta)
-	match camera_pivot.current_view:
-		CameraPivot.VIEW.TOP:
-			hovered.position.z += ((next_mouse_position.y - prev_mouse_position.y) * Grabbed_Mouse_Influence * delta)
-		CameraPivot.VIEW.FRONT:
-			hovered.position.y -= ((next_mouse_position.y - prev_mouse_position.y) * Grabbed_Mouse_Influence * delta)
 	
+	grabbed.position = screen_point_to_ray(1000).position
+	
+	var mouse_area_collision = screen_point_to_ray(10000) # LAYER 5 (MOUSEAREAS)
+	if mouse_area_collision:
+		hovered_mousearea = mouse_area_collision["collider"]
+		if grabbed.check_area_compatible(hovered_mousearea.name) and hovered_mousearea.available:
+			grabbed.position = hovered_mousearea.position
+	else:
+		hovered_mousearea = null
+
+	next_mouse_position = get_viewport().get_mouse_position()
 	var mouse_speed = next_mouse_position - prev_mouse_position
 	check_mouse_swings(mouse_speed)
 	
 	prev_mouse_position = next_mouse_position
 
+func check_grab_ingredientsack():
+	var ingredientsack_area = screen_point_to_ray(000100) # LAYER 3
+	if ingredientsack_area:
+		print(ingredientsack_area["collider"])
+		grabbed = ingredientsack_area["collider"].get_parent().instantiate_ingredient()
+
+
+const Swing_Speed_Threshold := 50.0
 enum SwingStates{ DOWN, UP, RIGHT, LEFT, NEUTRAL}
 var currentSwing := SwingStates.NEUTRAL
-
 func check_mouse_swings(mouse_speed:Vector2):
 	if !hovered is Tool:
 		return
@@ -129,3 +146,22 @@ func switch_view(view:CameraPivot.VIEW):
 			camera_pivot.switch_to_top_view()
 		CameraPivot.VIEW.FRONT:
 			camera_pivot.switch_to_front_view()
+
+func screen_point_to_ray(layer_mask) -> Dictionary:
+	
+	var spaceState = get_world_3d().direct_space_state
+	
+	var mousePos = get_viewport().get_mouse_position()
+	var camera = get_viewport().get_camera_3d()
+	var ray_origin = camera.project_ray_origin(mousePos)
+	var ray_end = ray_origin + camera.project_ray_normal(mousePos) * 1000
+	
+	var rayQuery = PhysicsRayQueryParameters3D.create(ray_origin, ray_end, layer_mask)
+	rayQuery.collide_with_areas = true
+	var mouse_ray = spaceState.intersect_ray(rayQuery)
+	
+	if mouse_ray.has("position"):
+		#print("HIT: ", mouse_ray["collider"], " - ",mouse_ray["collider"].get_collision_layer())
+		return mouse_ray
+	return {}
+

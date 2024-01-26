@@ -1,12 +1,13 @@
 extends RigidBody3D
 class_name Grabable
 
-@export var hovered_indicator : Node3D
+#@export var hovered_indicator : Node3D
 var grabbed
 @export var grabbed_view : CameraPivot.VIEW
 var target_height := 1.2
 @export var target_z := 0.6
-
+@export var compatible_areas : Array
+var cooking_area : CookingArea
 var current_rotation : Quaternion
 
 func _ready():
@@ -31,15 +32,26 @@ func grab():
 			position.y = target_height
 		CameraPivot.VIEW.FRONT:
 			position.z = target_z
-
+	if cooking_area:
+		cooking_area.set_available(true)
+		cooking_area = null
+	
 func release():
 	gravity_scale = 1
 
+
 func set_hovered(value):
-	grabbed = false;
-	if !hovered_indicator:
-		return
-	hovered_indicator.visible = value
+	pass
+	#grabbed = false;
+	#if !hovered_indicator:
+		#return
+	#hovered_indicator.visible = value
 	
 func use():
 	pass
+
+func check_area_compatible(area_name : String):
+	#print("AREA IS: ", area_name, " Compatible are: ", compatible_areas)
+	if compatible_areas.has(area_name):
+		return true
+	return false

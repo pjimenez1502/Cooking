@@ -1,7 +1,8 @@
-[gd_scene load_steps=62 format=3 uid="uid://pel7gn02j75f"]
+[gd_scene load_steps=64 format=3 uid="uid://pel7gn02j75f"]
 
 [ext_resource type="Script" path="res://Scripts/Tools/Plate.gd" id="1_vtdpu"]
 [ext_resource type="PackedScene" uid="uid://r0rmheaff4cd" path="res://Models/Tools/Bowl.glb" id="2_5bacr"]
+[ext_resource type="Script" path="res://Scenes/CookingArea.gd" id="3_4j01s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0nkv8"]
 size = Vector3(0.296448, 0.134251, 0.290298)
@@ -661,6 +662,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6s2x0")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_qjpr8"]
+radius = 0.167148
+
 [node name="Bowl" type="RigidBody3D"]
 script = ExtResource("1_vtdpu")
 target_z = 0.4
@@ -789,5 +793,13 @@ skeleton = NodePath("")
 visible = false
 mesh = SubResource("ArrayMesh_2oal3")
 skeleton = NodePath("")
+
+[node name="BOWLMOUSEAREA" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12555, 0)
+script = ExtResource("3_4j01s")
+area_name = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BOWLMOUSEAREA"]
+shape = SubResource("SphereShape3D_qjpr8")
 
 [connection signal="body_entered" from="IngredientCapture" to="." method="_on_ingredient_capture_body_entered"]

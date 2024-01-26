@@ -3,7 +3,7 @@ class_name IngredientSack
 
 @export var hovered_indicator : Node3D
 
-enum Ingredients { TOMATO, CARROT, ONION, POTATO, MUSHROOM }
+enum Ingredients { TOMATO, CARROT, ONION, POTATO, MUSHROOM, MEAT }
 @export var sack_ingredient : Ingredients
 var ingredient_dict = {
 	"TOMATO" : "res://Scenes/Prefabs/Ingredients/Raw/Tomato.tscn",
@@ -11,6 +11,7 @@ var ingredient_dict = {
 	"ONION" : "res://Scenes/Prefabs/Ingredients/Raw/Onion.tscn",
 	"POTATO" : "res://Scenes/Prefabs/Ingredients/Raw/Potato.tscn",
 	"MUSHROOM": "res://Scenes/Prefabs/Ingredients/Raw/Mushroom.tscn",
+	"MEAT": "res://Scenes/Prefabs/Ingredients/Raw/Meat.tscn",
 }
 
 var ingredient_prefab
@@ -42,4 +43,4 @@ func instantiate_ingredient():
 	var instance = ingredient_prefab.instantiate()
 	instance.position = instantiate_position
 	target_node.add_child(instance)
-	pass
+	return instance

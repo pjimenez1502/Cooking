@@ -43,9 +43,8 @@ points = PackedVector3Array(-8.47504e-08, -0.0506978, -0.0844927, -8.47504e-08, 
 radius = 0.023574
 height = 0.306646
 
-[node name="Knife" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
+[node name="Knife" type="RigidBody3D"]
 script = ExtResource("1_t0l6c")
-hovered_indicator = NodePath("Knife2/HoverMesh")
 grabbed_view = 1
 target_z = 0.8
 

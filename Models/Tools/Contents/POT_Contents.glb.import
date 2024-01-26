@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cbi6wolhq1su8"
-path="res://.godot/imported/Table.glb-49225a152dcbe2da3e4d3f96f4785c2f.scn"
+uid="uid://dnfwu07bq3c1x"
+path="res://.godot/imported/POT_Contents.glb-c613b8b4829a5fa45607fdc57096733c.scn"
 
 [deps]
 
-source_file="res://Models/Environment/Table.glb"
-dest_files=["res://.godot/imported/Table.glb-49225a152dcbe2da3e4d3f96f4785c2f.scn"]
+source_file="res://Models/Tools/Contents/POT_Contents.glb"
+dest_files=["res://.godot/imported/POT_Contents.glb-c613b8b4829a5fa45607fdc57096733c.scn"]
 
 [params]
 
@@ -31,9 +31,9 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"Table": {
+"Material": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Environment/Table.tres"
+"use_external/path": "res://Materials/Shaders/Pot_content_material.tres"
 }
 }
 }

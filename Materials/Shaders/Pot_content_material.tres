@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://37pm3yd6plia"]
+
+[ext_resource type="Texture2D" uid="uid://bn6tov4otlu0" path="res://Materials/Textures/Utensils/Pot_Contents.png" id="1_tivl1"]
+
+[resource]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_tivl1")
+texture_filter = 0
