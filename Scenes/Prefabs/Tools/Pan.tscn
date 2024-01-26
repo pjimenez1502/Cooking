@@ -1,7 +1,7 @@
 [gd_scene load_steps=67 format=3 uid="uid://dus6mepmxmcdr"]
 
 [ext_resource type="Script" path="res://Scripts/Tools/Pan.gd" id="1_6oftj"]
-[ext_resource type="Script" path="res://Scenes/CookwareArea.gd" id="1_tm77q"]
+[ext_resource type="Script" path="res://Scripts/Tools/CookwareArea.gd" id="1_tm77q"]
 [ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="2_awvkq"]
 [ext_resource type="Material" uid="uid://csyx73a8bn003" path="res://Materials/Shaders/VertexColor.tres" id="2_m40nc"]
 
@@ -699,8 +699,8 @@ radius = 0.167148
 
 [node name="Pan" type="StaticBody3D" node_paths=PackedStringArray("self_area_collider")]
 script = ExtResource("1_6oftj")
-self_area_collider = NodePath("PAN/CollisionShape3D")
 compatible_areas = ["STOVE_L", "STOVE_R"]
+self_area_collider = NodePath("PAN/CollisionShape3D")
 
 [node name="Pan" type="Node3D" parent="."]
 

@@ -36,7 +36,3 @@ RightClick={
 3d_physics/layer_4="mouseplane"
 3d_physics/layer_5="MouseArea"
 3d_physics/layer_6="Grabable"
-
-[physics]
-
-3d/physics_engine="GodotPhysics3D"

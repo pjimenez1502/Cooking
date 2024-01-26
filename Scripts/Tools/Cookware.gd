@@ -2,7 +2,7 @@ extends Pourable
 class_name Cookware
 
 var heated := false
-@export var self_area_collider : CollisionShape3D
+
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -37,13 +37,6 @@ var current_content = {
 }
 var content_refecences = {}
 
-func grab():
-	super.grab()
-	self_area_collider.disabled = true
-
-func release():
-	super.release()
-	self_area_collider.disabled = false
 
 #func _on_ingredient_capture_body_entered(body):
 func add_ingredient(body):
@@ -59,7 +52,7 @@ func add_ingredient(body):
 			body.queue_free()
 
 func progress_cooking(delta):
-	
+	#print(heated)
 	if !heated:
 		return
 	for content_key in current_content:

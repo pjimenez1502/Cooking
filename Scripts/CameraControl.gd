@@ -97,7 +97,8 @@ func grabbed_movement(delta):
 	var mouse_area_collision = screen_point_to_ray(10000) # LAYER 5 (MOUSEAREAS)
 	if mouse_area_collision:
 		hovered_mousearea = mouse_area_collision["collider"]
-		if grabbed.check_area_compatible(hovered_mousearea.name) and hovered_mousearea.available:
+		if hovered_mousearea.check_area_compatible(grabbed.compatible_areas):
+		#if grabbed.check_area_compatible(hovered_mousearea.name) and hovered_mousearea.available:
 			grabbed.global_position = hovered_mousearea.global_position
 	else:
 		hovered_mousearea = null

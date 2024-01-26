@@ -9,6 +9,8 @@ var target_height := 1.2
 var cooking_area : CookingArea
 var current_rotation : Quaternion
 
+@export var self_area_collider : CollisionShape3D
+
 func _ready():
 	pass # Replace with function body.
 
@@ -31,10 +33,13 @@ func grab():
 		print("aa")
 		cooking_area.set_available(true)
 		cooking_area = null
+	if self_area_collider:
+		self_area_collider.disabled = true
 	
 func release():
 	grabbed = false
-	pass
+	if self_area_collider:
+		self_area_collider.disabled = false
 
 
 func set_hovered(value):
@@ -47,8 +52,8 @@ func set_hovered(value):
 func use():
 	pass
 
-func check_area_compatible(area_name : String):
-	print("AREA IS: ", area_name, " Compatible are: ", compatible_areas)
-	if compatible_areas.has(area_name):
-		return true
-	return false
+#func check_area_compatible(area_name : String):
+	#print("AREA IS: ", area_name, " Compatible are: ", compatible_areas)
+	#if compatible_areas.has(area_name):
+		#return true
+	#return false

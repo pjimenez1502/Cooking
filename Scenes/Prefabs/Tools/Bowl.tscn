@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Tools/Plate.gd" id="1_vtdpu"]
 [ext_resource type="PackedScene" uid="uid://r0rmheaff4cd" path="res://Models/Tools/Bowl.glb" id="2_5bacr"]
-[ext_resource type="Script" path="res://Scenes/CookingArea.gd" id="3_4j01s"]
+[ext_resource type="Script" path="res://Scripts/Tools/CookingArea.gd" id="3_4j01s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0nkv8"]
 size = Vector3(0.296448, 0.134251, 0.290298)
@@ -665,9 +665,11 @@ shadow_mesh = SubResource("ArrayMesh_6s2x0")
 [sub_resource type="SphereShape3D" id="SphereShape3D_qjpr8"]
 radius = 0.167148
 
-[node name="Bowl" type="StaticBody3D"]
+[node name="Bowl" type="StaticBody3D" node_paths=PackedStringArray("self_area_collider")]
 script = ExtResource("1_vtdpu")
 target_z = 0.4
+compatible_areas = ["CENTERBOARD", "DELIVERY_1", "DELIVERY_2", "DELIVERY_3", "DELIVERY_4"]
+self_area_collider = NodePath("BOWLMOUSEAREA/CollisionShape3D")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000640944, 0.0657518, 0.000358567)

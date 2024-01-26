@@ -18,6 +18,5 @@ func _on_cut_area_body_entered(body):
 		return
 	if !body is Ingredient:
 		return
-	print(body)
 	body.chop()
 
