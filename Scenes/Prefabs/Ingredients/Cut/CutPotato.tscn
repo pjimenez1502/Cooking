@@ -49,12 +49,11 @@ shadow_mesh = SubResource("ArrayMesh_sjnso")
 [sub_resource type="BoxShape3D" id="BoxShape3D_odqqq"]
 size = Vector3(0.141312, 0.0477423, 0.145391)
 
-[node name="Cut_Potato" type="RigidBody3D" node_paths=PackedStringArray("hovered_indicator")]
-collision_layer = 2
-collision_mask = 2
+[node name="Cut_Potato" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_aym60")
 id = 12
-hovered_indicator = NodePath("HoverMesh")
 target_z = 1.0
 
 [node name="HoverMesh" type="MeshInstance3D" parent="."]

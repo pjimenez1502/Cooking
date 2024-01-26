@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://bemtfjqy7junx"]
 
-[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_x2eek"]
-[ext_resource type="PackedScene" uid="uid://dg5vsn7rsjs4h" path="res://Models/Ingredientts/GreenLeaf.glb" id="2_rdq8y"]
+[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_2vjx5"]
+[ext_resource type="PackedScene" uid="uid://dg5vsn7rsjs4h" path="res://Models/Ingredientts/GreenLeaf.glb" id="2_5c0io"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rbeu4"]
 size = Vector3(0.372025, 0.0289421, 0.217194)
 
-[node name="GreenLeaf" type="RigidBody3D"]
+[node name="GreenLeaf" type="StaticBody3D"]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_x2eek")
+script = ExtResource("1_2vjx5")
 target_z = 1.0
 compatible_areas = ["BOWL"]
 
@@ -17,4 +17,4 @@ compatible_areas = ["BOWL"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00926971, 0.00461006, 0.00291443)
 shape = SubResource("BoxShape3D_rbeu4")
 
-[node name="GreenLeaf" parent="." instance=ExtResource("2_rdq8y")]
+[node name="GreenLeaf" parent="." instance=ExtResource("2_5c0io")]

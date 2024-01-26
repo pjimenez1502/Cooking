@@ -9,7 +9,7 @@ size = Vector3(0.09, 0.156, 0.032)
 [sub_resource type="BoxShape3D" id="BoxShape3D_c6vak"]
 size = Vector3(0.3506, 0.0055542, 0.012146)
 
-[node name="Spoon" type="RigidBody3D"]
+[node name="Spoon" type="StaticBody3D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_jjqh6")

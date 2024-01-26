@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c6psggx8qgdat"]
+[gd_scene load_steps=23 format=3 uid="uid://c6psggx8qgdat"]
 
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="1_8arvf"]
 [ext_resource type="Script" path="res://Scripts/Guest_Manager.gd" id="1_83nuh"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dus6mepmxmcdr" path="res://Scenes/Prefabs/Tools/Pan.tscn" id="8_q2hjc"]
 [ext_resource type="PackedScene" uid="uid://ydaa27l2garw" path="res://Scenes/Prefabs/Tools/ingredient_sack.tscn" id="8_yss3q"]
 [ext_resource type="PackedScene" uid="uid://4x7a2i5exeff" path="res://Scenes/Prefabs/Tools/Pot.tscn" id="9_gam3w"]
+[ext_resource type="PackedScene" uid="uid://dono37seo1eit" path="res://Scenes/Prefabs/Tools/WaterJug.tscn" id="10_nhnpx"]
 [ext_resource type="PackedScene" uid="uid://ccru32x1knod6" path="res://Scenes/Prefabs/Tools/Knife.tscn" id="10_ue45u"]
 [ext_resource type="PackedScene" uid="uid://pel7gn02j75f" path="res://Scenes/Prefabs/Tools/Bowl.tscn" id="17_ax1lg"]
 [ext_resource type="PackedScene" uid="uid://ddlgr56iw3uel" path="res://Scenes/Prefabs/Tools/MeatTable.tscn" id="19_abqss"]
@@ -151,48 +152,6 @@ area_name = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Base/Dungeon/MouseAreas/KNIFEREST"]
 shape = SubResource("SphereShape3D_ew4jl")
 
-[node name="DeliveryPoints" type="Node" parent="Base/Dungeon/MouseAreas"]
-
-[node name="DELIVERY1" type="Area3D" parent="Base/Dungeon/MouseAreas/DeliveryPoints"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, 1.1584, 1.35492, -0.283371)
-collision_layer = 16
-collision_mask = 16
-script = ExtResource("3_du6xc")
-area_name = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Base/Dungeon/MouseAreas/DeliveryPoints/DELIVERY1"]
-shape = SubResource("SphereShape3D_ew4jl")
-
-[node name="DELIVERY2" type="Area3D" parent="Base/Dungeon/MouseAreas/DeliveryPoints"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, 0.437014, 1.35492, -0.283371)
-collision_layer = 16
-collision_mask = 16
-script = ExtResource("3_du6xc")
-area_name = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Base/Dungeon/MouseAreas/DeliveryPoints/DELIVERY2"]
-shape = SubResource("SphereShape3D_ew4jl")
-
-[node name="DELIVERY3" type="Area3D" parent="Base/Dungeon/MouseAreas/DeliveryPoints"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, -0.385507, 1.35492, -0.283371)
-collision_layer = 16
-collision_mask = 16
-script = ExtResource("3_du6xc")
-area_name = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Base/Dungeon/MouseAreas/DeliveryPoints/DELIVERY3"]
-shape = SubResource("SphereShape3D_ew4jl")
-
-[node name="DELIVERY4" type="Area3D" parent="Base/Dungeon/MouseAreas/DeliveryPoints"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, -1.14061, 1.35492, -0.283371)
-collision_layer = 16
-collision_mask = 16
-script = ExtResource("3_du6xc")
-area_name = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Base/Dungeon/MouseAreas/DeliveryPoints/DELIVERY4"]
-shape = SubResource("SphereShape3D_ew4jl")
-
 [node name="CameraPivot" type="Node3D" parent="Base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.971527, 0.17652)
 script = ExtResource("2_r0yoa")
@@ -247,9 +206,22 @@ shape = SubResource("BoxShape3D_kx6gr")
 
 [node name="Interactuable" type="Node" parent="."]
 
+[node name="WaterJug" parent="Interactuable" instance=ExtResource("10_nhnpx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.360457, 0.871315, 0.191211)
+
 [node name="Knife" parent="Interactuable" instance=ExtResource("10_ue45u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.396082, 0.955513, 0.796392)
 compatible_areas = ["KNIFEREST"]
+
+[node name="Pot" parent="Interactuable" instance=ExtResource("9_gam3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.936439, 0.964464, 0.602091)
+compatible_areas = ["STOVE_R", "STOVE_L"]
+
+[node name="Pan" parent="Interactuable" instance=ExtResource("8_q2hjc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.433513, 0.965241, 0.641011)
+collision_layer = 1
+collision_mask = 1
+compatible_areas = ["STOVE_R", "STOVE_L"]
 
 [node name="Bowl" parent="Interactuable" instance=ExtResource("17_ax1lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22381, 0.871734, 0.109564)
@@ -274,9 +246,3 @@ visible = false
 [node name="Guest4" parent="Guests" instance=ExtResource("22_mufpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38372, 0, -0.688746)
 visible = false
-
-[node name="Pot" parent="." instance=ExtResource("9_gam3w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.901279, 1.12874, 0.628208)
-
-[node name="Pan" parent="." instance=ExtResource("8_q2hjc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.446555, 1.12953, 0.627126)

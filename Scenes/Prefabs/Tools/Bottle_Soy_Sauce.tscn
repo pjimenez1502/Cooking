@@ -10,7 +10,7 @@ size = Vector3(0.0741042, 0.356995, 0.0805588)
 radius = 0.111646
 height = 0.962231
 
-[node name="SoyBottle" type="RigidBody3D"]
+[node name="SoyBottle" type="StaticBody3D"]
 script = ExtResource("1_rqhfu")
 target_z = 1.0
 

@@ -6,12 +6,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_odqqq"]
 size = Vector3(0.187644, 0.0477423, 0.174099)
 
-[node name="Cut_Carrot" type="RigidBody3D"]
-collision_layer = 2
-collision_mask = 2
+[node name="Cut_Carrot" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_ttcuj")
 id = 8
 target_z = 1.0
+compatible_areas = ["PAN"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00469799, 0.023132, -0.0271855)

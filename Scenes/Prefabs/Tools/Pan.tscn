@@ -1,6 +1,7 @@
-[gd_scene load_steps=65 format=3 uid="uid://dus6mepmxmcdr"]
+[gd_scene load_steps=67 format=3 uid="uid://dus6mepmxmcdr"]
 
 [ext_resource type="Script" path="res://Scripts/Tools/Pan.gd" id="1_6oftj"]
+[ext_resource type="Script" path="res://Scenes/CookwareArea.gd" id="1_tm77q"]
 [ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="2_awvkq"]
 [ext_resource type="Material" uid="uid://csyx73a8bn003" path="res://Materials/Shaders/VertexColor.tres" id="2_m40nc"]
 
@@ -693,11 +694,13 @@ shadow_mesh = SubResource("ArrayMesh_6s2x0")
 [sub_resource type="SphereShape3D" id="SphereShape3D_ionkv"]
 radius = 0.267794
 
-[node name="Pan" type="RigidBody3D"]
-collision_layer = 2
-collision_mask = 2
+[sub_resource type="SphereShape3D" id="SphereShape3D_dbo76"]
+radius = 0.167148
+
+[node name="Pan" type="StaticBody3D" node_paths=PackedStringArray("self_area_collider")]
 script = ExtResource("1_6oftj")
-compatible_areas = ["", null]
+self_area_collider = NodePath("PAN/CollisionShape3D")
+compatible_areas = ["STOVE_L", "STOVE_R"]
 
 [node name="Pan" type="Node3D" parent="."]
 
@@ -829,3 +832,13 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PourableArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.263239, 0)
 shape = SubResource("SphereShape3D_ionkv")
+
+[node name="PAN" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.189039, 0)
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_tm77q")
+area_name = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PAN"]
+shape = SubResource("SphereShape3D_dbo76")

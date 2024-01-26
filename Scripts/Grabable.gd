@@ -1,8 +1,7 @@
-extends RigidBody3D
+extends StaticBody3D
 class_name Grabable
 
-#@export var hovered_indicator : Node3D
-var grabbed
+var grabbed : bool
 @export var grabbed_view : CameraPivot.VIEW
 var target_height := 1.2
 @export var target_z := 0.6
@@ -22,22 +21,20 @@ func _physics_process(delta):
 		transform.basis = Basis(current_rotation)
 	
 func grab():
-	grabbed = true;
-	gravity_scale = 0
-	linear_velocity = Vector3.ZERO
-	angular_velocity = Vector3.ZERO
-	
+	grabbed = true
 	match grabbed_view:
 		CameraPivot.VIEW.TOP:
 			position.y = target_height
 		CameraPivot.VIEW.FRONT:
 			position.z = target_z
 	if cooking_area:
+		print("aa")
 		cooking_area.set_available(true)
 		cooking_area = null
 	
 func release():
-	gravity_scale = 1
+	grabbed = false
+	pass
 
 
 func set_hovered(value):
@@ -51,7 +48,7 @@ func use():
 	pass
 
 func check_area_compatible(area_name : String):
-	#print("AREA IS: ", area_name, " Compatible are: ", compatible_areas)
+	print("AREA IS: ", area_name, " Compatible are: ", compatible_areas)
 	if compatible_areas.has(area_name):
 		return true
 	return false

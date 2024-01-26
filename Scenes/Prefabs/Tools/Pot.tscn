@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://4x7a2i5exeff"]
+[gd_scene load_steps=11 format=3 uid="uid://4x7a2i5exeff"]
 
 [ext_resource type="Script" path="res://Scripts/Tools/Pot.gd" id="1_hiapu"]
+[ext_resource type="Script" path="res://Scenes/CookwareArea.gd" id="1_olryf"]
 [ext_resource type="Material" uid="uid://csyx73a8bn003" path="res://Materials/Shaders/VertexColor.tres" id="2_2qv15"]
 [ext_resource type="PackedScene" uid="uid://dnfwu07bq3c1x" path="res://Models/Tools/Contents/POT_Contents.glb" id="3_6p8bo"]
 
@@ -45,13 +46,13 @@ size = Vector3(0.208008, 0.136002, 0.20961)
 [sub_resource type="SphereShape3D" id="SphereShape3D_ft0fw"]
 radius = 0.267794
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_73jbx"]
-height = 0.133156
-radius = 0.123312
+[sub_resource type="SphereShape3D" id="SphereShape3D_pwo4g"]
+radius = 0.167148
 
-[node name="Pot" type="RigidBody3D"]
+[node name="Pot" type="StaticBody3D" node_paths=PackedStringArray("self_area_collider")]
 script = ExtResource("1_hiapu")
-grabbed_view = 1
+self_area_collider = NodePath("BOWLMOUSEAREA/CollisionShape3D")
+compatible_areas = ["STOVE_L", "STOVE_R"]
 
 [node name="Pot" type="Node3D" parent="."]
 
@@ -71,13 +72,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0207977, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.263239, 0)
 shape = SubResource("SphereShape3D_ft0fw")
 
-[node name="IngredientCapture" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0644999, 0)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="IngredientCapture"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00633442, 0)
-shape = SubResource("CylinderShape3D_73jbx")
-
 [node name="POT_Contents" parent="." instance=ExtResource("3_6p8bo")]
+
+[node name="BOWLMOUSEAREA" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225553, 0)
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_olryf")
+area_name = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BOWLMOUSEAREA"]
+shape = SubResource("SphereShape3D_pwo4g")

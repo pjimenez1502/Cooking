@@ -15,7 +15,7 @@ func _physics_process(delta):
 	check_hover()
 	grabbed_movement(delta)
 
- 
+
 
 func _input(event):
 	if event is InputEventMouse:
@@ -29,12 +29,11 @@ func _input(event):
 			grab_hovered()
 		elif hovered_mousearea and hovered_mousearea.check_area_compatible(grabbed.compatible_areas):
 			release_grabbed(hovered_mousearea)
-		
 	
 	
 	if event.is_action_pressed("RightClick"):
 		if grabbed:
-			hovered.use()
+			grabbed.use()
 
 func check_hover():
 	if grabbed:
@@ -67,7 +66,6 @@ func clearHovered():
 		hovered = null
 
 func grab_hovered():
-	print(hovered)
 	if !hovered:
 		return
 	grabbed = hovered
@@ -75,25 +73,32 @@ func grab_hovered():
 	#switch_view(hovered.grabbed_view)
 
 func release_grabbed(hovered_mousearea):
+	if hovered_mousearea is CookwareArea:
+		hovered_mousearea.get_parent().add_ingredient(grabbed)
+		grabbed.release()
+		hovered = null
+		grabbed = null
+		return
+		
 	hovered_mousearea.set_available(false)
 	grabbed.cooking_area = hovered_mousearea
 	grabbed.release()
 	hovered = null
 	grabbed = null
+	
 	#switch_view(CameraPivot.VIEW.FRONT)
 
 var hovered_mousearea
 func grabbed_movement(delta):
 	if !grabbed:
 		return
-	
 	grabbed.position = screen_point_to_ray(1000).position
 	
 	var mouse_area_collision = screen_point_to_ray(10000) # LAYER 5 (MOUSEAREAS)
 	if mouse_area_collision:
 		hovered_mousearea = mouse_area_collision["collider"]
 		if grabbed.check_area_compatible(hovered_mousearea.name) and hovered_mousearea.available:
-			grabbed.position = hovered_mousearea.position
+			grabbed.global_position = hovered_mousearea.global_position
 	else:
 		hovered_mousearea = null
 
@@ -106,7 +111,7 @@ func grabbed_movement(delta):
 func check_grab_ingredientsack():
 	var ingredientsack_area = screen_point_to_ray(000100) # LAYER 3
 	if ingredientsack_area:
-		print(ingredientsack_area["collider"])
+		#print(ingredientsack_area["collider"])
 		grabbed = ingredientsack_area["collider"].get_parent().instantiate_ingredient()
 
 

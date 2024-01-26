@@ -2,7 +2,7 @@ extends Area3D
 class_name CookingArea
 
 var available := true
-enum Area_Name { STOVE_R, STOVE_L, CENTERBOARD, CUTTINGBOARD , KNIFEREST, BOWL }
+enum Area_Name { STOVE_R, STOVE_L, CENTERBOARD, CUTTINGBOARD , KNIFEREST, BOWL, PAN, POT }
 @export var area_name : Area_Name
 	
 func set_available(value : bool):
