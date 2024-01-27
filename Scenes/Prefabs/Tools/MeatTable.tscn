@@ -41,7 +41,7 @@ shadow_mesh = SubResource("ArrayMesh_fufti")
 [sub_resource type="SphereShape3D" id="SphereShape3D_6ngvq"]
 radius = 0.217712
 
-[node name="IngredientSack" type="Node3D" node_paths=PackedStringArray("hovered_indicator")]
+[node name="MeatTable" type="Node3D" node_paths=PackedStringArray("hovered_indicator")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("1_i3r0r")
 hovered_indicator = NodePath("IngredientSackHovered")
@@ -59,6 +59,8 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_roi8a")
 
 [node name="CollisionShape3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164375, 0.010265)

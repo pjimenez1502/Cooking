@@ -43,7 +43,8 @@ points = PackedVector3Array(-8.47504e-08, -0.0506978, -0.0844927, -8.47504e-08, 
 radius = 0.023574
 height = 0.306646
 
-[node name="Knife" type="StaticBody3D"]
+[node name="Knife" type="AnimatableBody3D"]
+sync_to_physics = false
 script = ExtResource("1_t0l6c")
 grabbed_view = 1
 target_z = 0.8

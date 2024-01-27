@@ -2,22 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpybcoei87fja"
-path.s3tc="res://.godot/imported/Meat_Ingredients.png-cbbebaea1f0cd7e1a1d3fcbcbf42b9f9.s3tc.ctex"
+uid="uid://cwq8ikdpptfwg"
+path="res://.godot/imported/Meat_Ingredients.png-cbbebaea1f0cd7e1a1d3fcbcbf42b9f9.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/Ingredientts/Meat_Ingredients.png"
-dest_files=["res://.godot/imported/Meat_Ingredients.png-cbbebaea1f0cd7e1a1d3fcbcbf42b9f9.s3tc.ctex"]
+dest_files=["res://.godot/imported/Meat_Ingredients.png-cbbebaea1f0cd7e1a1d3fcbcbf42b9f9.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -33,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

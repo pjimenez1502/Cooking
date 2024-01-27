@@ -44,9 +44,8 @@ size = Vector3(0.251495, 0.356995, 0.228271)
 radius = 0.141181
 height = 1.00736
 
-[node name="WaterJug" type="StaticBody3D"]
+[node name="WaterJug" type="AnimatableBody3D"]
 script = ExtResource("1_isl6f")
-pourable_type = 2
 target_z = 1.0
 
 [node name="Jug" type="Node3D" parent="."]

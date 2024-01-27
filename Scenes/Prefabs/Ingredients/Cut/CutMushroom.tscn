@@ -6,11 +6,12 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_odqqq"]
 size = Vector3(0.187644, 0.0477423, 0.174099)
 
-[node name="Cut_Mushroom" type="StaticBody3D"]
+[node name="Cut_Mushroom" type="AnimatableBody3D"]
 collision_layer = 3
 collision_mask = 3
+sync_to_physics = false
 script = ExtResource("1_6u8jr")
-id = 11
+id = 12
 target_z = 1.0
 compatible_areas = ["PAN"]
 

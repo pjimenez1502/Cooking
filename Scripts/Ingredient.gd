@@ -4,6 +4,7 @@ class_name Ingredient
 @export var id : FoodDictionary.IngredientID
 var target_node
 func _ready():
+	super._ready()
 	target_node = get_parent()
 	compatible_areas.push_front("CUTTINGBOARD")
 

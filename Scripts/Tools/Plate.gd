@@ -66,19 +66,6 @@ func plate_ingredients(ingredients: Array):
 	for ingredient in ingredients:
 		set_ingredient_active(ingredient, true)
 
-
-func _on_ingredient_capture_body_entered(body):
-	if !body is Ingredient:
-		return
-	var body_content_key = FoodDictionary.IngredientID.keys()[body.id]
-
-	for content_key in content_refecences:
-		if content_key == body_content_key:
-			if current_content[content_key]["active"]:
-				return
-			set_ingredient_active(content_key, true)
-			body.queue_free()
-
 func set_ingredient_active(content_key: String, active: bool):
 		current_content[content_key]["active"] = active
 		content_refecences[content_key]["object"].visible = active

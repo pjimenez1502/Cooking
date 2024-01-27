@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c6psggx8qgdat"]
+[gd_scene load_steps=28 format=3 uid="uid://c6psggx8qgdat"]
 
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="1_8arvf"]
 [ext_resource type="Script" path="res://Scripts/Guest_Manager.gd" id="1_83nuh"]
@@ -6,12 +6,14 @@
 [ext_resource type="Script" path="res://Scripts/CameraPivot.gd" id="2_r0yoa"]
 [ext_resource type="Script" path="res://Scripts/Tools/CookingArea.gd" id="3_du6xc"]
 [ext_resource type="PackedScene" uid="uid://cbi6wolhq1su8" path="res://Models/Environment/Table.glb" id="4_5b1i8"]
-[ext_resource type="Script" path="res://Scripts/StoveArea.gd" id="6_e2qts"]
-[ext_resource type="PackedScene" uid="uid://dus6mepmxmcdr" path="res://Scenes/Prefabs/Tools/Pan.tscn" id="8_q2hjc"]
+[ext_resource type="Script" path="res://Scripts/Tools/StoveArea.gd" id="6_e2qts"]
+[ext_resource type="PackedScene" uid="uid://dus6mepmxmcdr" path="res://Scenes/Prefabs/Tools/Grabbables/Pan.tscn" id="8_q2hjc"]
 [ext_resource type="PackedScene" uid="uid://ydaa27l2garw" path="res://Scenes/Prefabs/Tools/ingredient_sack.tscn" id="8_yss3q"]
-[ext_resource type="PackedScene" uid="uid://4x7a2i5exeff" path="res://Scenes/Prefabs/Tools/Pot.tscn" id="9_gam3w"]
-[ext_resource type="PackedScene" uid="uid://ccru32x1knod6" path="res://Scenes/Prefabs/Tools/Knife.tscn" id="10_ue45u"]
-[ext_resource type="PackedScene" uid="uid://pel7gn02j75f" path="res://Scenes/Prefabs/Tools/Bowl.tscn" id="17_ax1lg"]
+[ext_resource type="PackedScene" uid="uid://4x7a2i5exeff" path="res://Scenes/Prefabs/Tools/Grabbables/Pot.tscn" id="9_gam3w"]
+[ext_resource type="Shader" path="res://Materials/Shaders/OutlineShader.gdshader" id="9_i08qi"]
+[ext_resource type="PackedScene" uid="uid://ccru32x1knod6" path="res://Scenes/Prefabs/Tools/Grabbables/Knife.tscn" id="10_ue45u"]
+[ext_resource type="PackedScene" uid="uid://2fj02bj4m35x" path="res://Scenes/Prefabs/Ingredients/Raw/Garlic.tscn" id="17_4tpp4"]
+[ext_resource type="PackedScene" uid="uid://pel7gn02j75f" path="res://Scenes/Prefabs/Tools/Grabbables/Bowl.tscn" id="17_ax1lg"]
 [ext_resource type="PackedScene" uid="uid://ddlgr56iw3uel" path="res://Scenes/Prefabs/Tools/MeatTable.tscn" id="19_abqss"]
 [ext_resource type="PackedScene" uid="uid://bluh10ckcjpb3" path="res://Models/Environment/Dungeon.glb" id="21_vh0xr"]
 [ext_resource type="PackedScene" uid="uid://cysuuewg7dhus" path="res://Scenes/Prefabs/Guest.tscn" id="22_mufpv"]
@@ -19,10 +21,19 @@
 [sub_resource type="PlaneMesh" id="PlaneMesh_chu74"]
 size = Vector2(20, 20)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_y3f1u"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_tyt23"]
+radius = 0.193101
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ew4jl"]
 radius = 0.157181
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a1y1b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6vkdc"]
+render_priority = 0
+shader = ExtResource("9_i08qi")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 2.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ispnc"]
 size = Vector3(3.105, 1.04102, 1.145)
@@ -31,7 +42,7 @@ size = Vector3(3.105, 1.04102, 1.145)
 size = Vector3(0.36, 0.118433, 0.36)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b53fx"]
-size = Vector3(0.516602, 0.100052, 0.478119)
+size = Vector3(0.756958, 0.100052, 0.478119)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gkv3y"]
 size = Vector3(0.514221, 0.088623, 0.362061)
@@ -100,12 +111,12 @@ transform = Transform3D(0.790004, 0, -0.126071, 0, 0.8, 0, 0.126071, 0, 0.790004
 sack_ingredient = 4
 
 [node name="MeatTable" parent="Base/Dungeon/IngredientSacks" instance=ExtResource("19_abqss")]
-transform = Transform3D(-0.780437, 0, -0.175836, 0, 0.8, 0, 0.175836, 0, -0.780437, 0.334894, 0.857903, 0.0726652)
+transform = Transform3D(0.785591, 0, 0.151153, 0, 0.8, 0, -0.151153, 0, 0.785591, 0.028883, 0.871734, 0.0635179)
 
 [node name="MouseAreas" type="Node" parent="Base/Dungeon"]
 
 [node name="Heating_Area" type="Area3D" parent="Base/Dungeon/MouseAreas"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, -0.454607, 1.00998, 0.624702)
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, -0.630543, 0.981043, 0.624702)
 collision_layer = 3
 collision_mask = 3
 priority = 50
@@ -113,10 +124,14 @@ script = ExtResource("6_e2qts")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Base/Dungeon/MouseAreas/Heating_Area"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_y3f1u")
+shape = SubResource("SphereShape3D_tyt23")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Base/Dungeon/MouseAreas/Heating_Area"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, -0.498151, 0, 0)
+shape = SubResource("SphereShape3D_tyt23")
 
 [node name="STOVE_R" type="Area3D" parent="Base/Dungeon/MouseAreas"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, -0.445895, 0.932473, 0.632998)
+transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, -0.638932, 0.932473, 0.632998)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("3_du6xc")
@@ -125,7 +140,7 @@ script = ExtResource("3_du6xc")
 shape = SubResource("SphereShape3D_ew4jl")
 
 [node name="STOVE_L" type="Area3D" parent="Base/Dungeon/MouseAreas"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, -0.937067, 0.932473, 0.632998)
+transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, -1.1301, 0.932473, 0.632998)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("3_du6xc")
@@ -135,7 +150,7 @@ area_name = 1
 shape = SubResource("SphereShape3D_ew4jl")
 
 [node name="CENTERBOARD" type="Area3D" parent="Base/Dungeon/MouseAreas"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, 0.214065, 0.932473, 0.687869)
+transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, 0.240967, 0.932473, 0.71695)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("3_du6xc")
@@ -146,7 +161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_ew4jl")
 
 [node name="CENTERBOARD2" type="Area3D" parent="Base/Dungeon/MouseAreas"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, -0.0271447, 0.932473, 0.498398)
+transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, -0.123065, 0.932473, 0.481543)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("3_du6xc")
@@ -157,7 +172,7 @@ transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_ew4jl")
 
 [node name="CUTTINGBOARD" type="Area3D" parent="Base/Dungeon/MouseAreas"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, 0.75668, 0.932473, 0.607501)
+transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, 0.855284, 0.921258, 0.611988)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("3_du6xc")
@@ -168,7 +183,7 @@ transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_ew4jl")
 
 [node name="KNIFEREST" type="Area3D" parent="Base/Dungeon/MouseAreas"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, 0.410046, 0.91594, 0.491956)
+transform = Transform3D(0.998299, -0.0344233, -0.0470472, 0, 0.807043, -0.590493, 0.0582958, 0.589489, 0.80567, 0.626945, 0.92927, 0.688756)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("3_du6xc")
@@ -228,6 +243,11 @@ transform = Transform3D(1, 0, 0, 0, 0.833037, 0.553217, 0, -0.553217, 0.833037, 
 fov = 80.0
 script = ExtResource("1_8arvf")
 
+[node name="OutlinePostProcessPlane" type="MeshInstance3D" parent="Base/CameraPivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.0143042, -0.261399)
+mesh = SubResource("PlaneMesh_a1y1b")
+surface_material_override/0 = SubResource("ShaderMaterial_6vkdc")
+
 [node name="Table" type="StaticBody3D" parent="Base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.81, 0)
 
@@ -236,19 +256,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.458776, 0.376383)
 shape = SubResource("BoxShape3D_ispnc")
 
 [node name="Stove_R_Collider" type="CollisionShape3D" parent="Base/Table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.448275, 0.0618926, 0.601851)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637556, 0.0618926, 0.601851)
 shape = SubResource("BoxShape3D_nmq5t")
 
 [node name="Stove_L_Collider" type="CollisionShape3D" parent="Base/Table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.944673, 0.061327, 0.601851)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13395, 0.061327, 0.601851)
 shape = SubResource("BoxShape3D_nmq5t")
 
 [node name="Center_Board_Collider" type="CollisionShape3D" parent="Base/Table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0657586, 0.0210437, 0.590954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0545891, 0.0210437, 0.590954)
 shape = SubResource("BoxShape3D_b53fx")
 
 [node name="Cutting_Board_Collider" type="CollisionShape3D" parent="Base/Table"]
-transform = Transform3D(0.997781, 0, -0.0665874, 0, 1, 0, 0.0665874, 0, 0.997781, 0.756, 0.0299548, 0.601022)
+transform = Transform3D(0.997781, 0, -0.0665874, 0, 1, 0, 0.0665874, 0, 0.997781, 0.863615, 0.0299548, 0.601022)
 shape = SubResource("BoxShape3D_gkv3y")
 
 [node name="Front_Collider" type="CollisionShape3D" parent="Base/Table"]
@@ -276,10 +296,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.396082, 0.955513, 0.796392)
 compatible_areas = ["KNIFEREST"]
 
 [node name="Pot" parent="Interactuable" instance=ExtResource("9_gam3w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.901279, 1.12874, 0.628208)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12319, 0.956852, 0.612921)
 
 [node name="Pan" parent="Interactuable" instance=ExtResource("8_q2hjc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.446555, 1.12953, 0.627126)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.644834, 0.929896, 0.627126)
 collision_layer = 3
 collision_mask = 3
 
@@ -305,6 +325,12 @@ visible = false
 [node name="Guest4" parent="Guests" instance=ExtResource("22_mufpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38372, 0, -0.688746)
 visible = false
+
+[node name="Garlic" parent="." instance=ExtResource("17_4tpp4")]
+transform = Transform3D(0.984558, -0.0569353, 0.16554, 0, 0.945632, 0.325238, -0.175057, -0.320216, 0.93103, 0.463529, 0.926483, -0.0195276)
+
+[node name="Garlic2" parent="." instance=ExtResource("17_4tpp4")]
+transform = Transform3D(0.926771, 0.100249, 0.362001, 0, 0.963728, -0.266885, -0.375626, 0.247342, 0.893156, 0.573155, 0.926483, 0.0454729)
 
 [connection signal="body_entered" from="Base/Dungeon/MouseAreas/Heating_Area" to="Base/Dungeon/MouseAreas/Heating_Area" method="_on_stove_l_area_body_entered"]
 [connection signal="body_exited" from="Base/Dungeon/MouseAreas/Heating_Area" to="Base/Dungeon/MouseAreas/Heating_Area" method="_on_stove_l_area_body_exited"]

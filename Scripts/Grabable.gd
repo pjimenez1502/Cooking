@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends AnimatableBody3D
 class_name Grabable
 
 var grabbed : bool
@@ -12,6 +12,7 @@ var current_rotation : Quaternion
 @export var self_area_collider : CollisionShape3D
 
 func _ready():
+	compatible_areas.push_front("CENTERBOARD")
 	pass # Replace with function body.
 
 func _process(_delta):

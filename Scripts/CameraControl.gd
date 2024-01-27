@@ -74,8 +74,9 @@ func grab_hovered():
 
 func release_grabbed(hovered_mousearea):
 	if hovered_mousearea is CookwareArea:
-		hovered_mousearea.get_parent().add_ingredient(grabbed)
-		grabbed.release()
+		hovered_mousearea.get_parent().add_ingredient(grabbed.id)
+		#grabbed.release()
+		grabbed.queue_free()
 		hovered = null
 		grabbed = null
 		return
@@ -85,6 +86,7 @@ func release_grabbed(hovered_mousearea):
 	grabbed.release()
 	hovered = null
 	grabbed = null
+	
 	
 	#switch_view(CameraPivot.VIEW.FRONT)
 

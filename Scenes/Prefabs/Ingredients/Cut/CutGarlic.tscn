@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://5bp5j0g4l4al"]
+
+[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_honjt"]
+[ext_resource type="PackedScene" uid="uid://cwub8bap6hykh" path="res://Models/Ingredientts/Processed/Garlic_cut.glb" id="2_uj6kp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_odqqq"]
+size = Vector3(0.19784, 0.0477423, 0.188691)
+
+[node name="Cut_Onion" type="AnimatableBody3D"]
+collision_layer = 3
+collision_mask = 3
+sync_to_physics = false
+script = ExtResource("1_honjt")
+id = 11
+target_z = 1.0
+compatible_areas = ["PAN"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00463174, 0.023132, -0.00958011)
+shape = SubResource("BoxShape3D_odqqq")
+
+[node name="Garlic_cut" parent="." instance=ExtResource("2_uj6kp")]

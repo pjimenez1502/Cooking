@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://2fj02bj4m35x"]
+
+[ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_btp1p"]
+[ext_resource type="PackedScene" uid="uid://5bp5j0g4l4al" path="res://Scenes/Prefabs/Ingredients/Cut/CutGarlic.tscn" id="2_6pcx3"]
+[ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="4_nhe0t"]
+[ext_resource type="PackedScene" uid="uid://cgbiavuh0nex2" path="res://Models/Ingredientts/Garlic.glb" id="4_y4oqm"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_huf6a"]
+material = ExtResource("4_nhe0t")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_016kp"]
+radius = 0.0558365
+
+[node name="Garlic" type="AnimatableBody3D"]
+collision_layer = 3
+collision_mask = 3
+sync_to_physics = false
+script = ExtResource("1_btp1p")
+id = 3
+cut_variant = ExtResource("2_6pcx3")
+target_z = 1.0
+
+[node name="HoveredMesh" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_huf6a")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_016kp")
+
+[node name="Garlic2" parent="." instance=ExtResource("4_y4oqm")]

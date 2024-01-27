@@ -34,10 +34,6 @@ func set_hovered(value):
 	hovered_indicator.visible = value
 
 
-func _on_input_event(_camera, event, _position, _normal, _shape_idx):
-	if event.is_action_pressed("LeftClick"):
-		instantiate_ingredient()
-
 var instantiate_position = Vector3(0.0, 1.2, 0.6) # TODO: CHANGE TO CURRENT CURSOR 3D POSITION
 func instantiate_ingredient():
 	var instance = ingredient_prefab.instantiate()

@@ -13,9 +13,10 @@ height = 0.1
 [sub_resource type="SphereShape3D" id="SphereShape3D_016kp"]
 radius = 0.0558365
 
-[node name="Tomato" type="StaticBody3D"]
+[node name="Tomato" type="AnimatableBody3D"]
 collision_layer = 3
 collision_mask = 3
+sync_to_physics = false
 script = ExtResource("1_2vsd1")
 cut_variant = ExtResource("2_e7p1a")
 target_z = 1.0
