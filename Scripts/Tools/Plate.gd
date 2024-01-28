@@ -41,30 +41,14 @@ var current_content = {
 	#"green_leaves": {"object": "",},
 	"cooked_noodles": {"object": $Pan_ingredients/Pan_Noodles,},
 	
-	##SAUTÉED
-	"sauteed_onion": {"object": $Sauteed_Pan_ingredients/Sauteed_Pan_Onion,},
-	"sauteed_carrot": {"object": $Sauteed_Pan_ingredients/Sauteed_Pan_Carrot,},
-	"sauteed_tomato": {"object": $Sauteed_Pan_ingredients/Sauteed_Pan_Tomato,},
-	"sauteed_mushroom": {"object": $Sauteed_Pan_ingredients/Sauteed_Pan_Mushrooms,},
-	"sauteed_garlic": {"object": $Sauteed_Pan_ingredients/Sauteed_Pan_Garlic,},
-	#"sauteed_green_leaves": {"object": "",},
-	"fried_noodles": {"object": $Sauteed_Pan_ingredients/Fried_Pan_Noodles,},
 	
-	##BURNED
-	"burned_onion": {"object": $Burned_Pan_ingredients/Burned_Pan_Onion,},
-	"burned_carrot": {"object": $Burned_Pan_ingredients/Burned_Pan_Carrot,},
-	"burned_tomato": {"object": $Burned_Pan_ingredients/Burned_Pan_Tomato,},
-	"burned_mushroom": {"object": $Burned_Pan_ingredients/Burned_Pan_Mushrooms,},
-	"burned_garlic": {"object": $Burned_Pan_ingredients/Burned_Pan_Garlic,},
-	#"burned_green_leaves": {"object": $Burned_Pan_ingredients/Burned_Pan_,},
-	"burned_noodles": {"object": $Burned_Pan_ingredients/Burned_Pan_Noodles,},
-	
-	"SOY": {"object": $Pan_ingredients/Pan_SoySauce,},
 }
 
 func plate_ingredients(ingredients: Array):
+	print(ingredients)			#RECEIVES list of ingredients.   	ON POT WATER - set
 	for ingredient in ingredients:
 		set_ingredient_active(ingredient, true)
+		
 
 func set_ingredient_active(content_key: String, active: bool):
 		current_content[content_key]["active"] = active

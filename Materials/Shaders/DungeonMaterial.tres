@@ -2,7 +2,8 @@
 
 [ext_resource type="Shader" path="res://Materials/Shaders/Toon_Shader.gdshader" id="1_hfhfa"]
 [ext_resource type="Texture2D" uid="uid://beqrt8kus8w0h" path="res://Materials/Textures/Environment/walls1.png" id="2_tfdth"]
-[ext_resource type="Texture2D" uid="uid://uf8g14t3uyon" path="res://Materials/Textures/Environment/walls1_normal.png" id="3_kq1u7"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lc3ri"]
 
 [resource]
 render_priority = 0
@@ -21,4 +22,4 @@ shader_parameter/rimlight_color = Color(1, 1, 1, 1)
 shader_parameter/normal_bias = Vector3(0, 0, 0)
 shader_parameter/light_bias = Vector3(0, 0, 0)
 shader_parameter/albedo_texture = ExtResource("2_tfdth")
-shader_parameter/normal_map = ExtResource("3_kq1u7")
+shader_parameter/normal_map = SubResource("CompressedTexture2D_lc3ri")

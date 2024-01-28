@@ -26,7 +26,6 @@ func initialize_sack():
 	# SET INGREDIENT MODEL
 	# SET PREFAB TO LOAD
 	ingredient_prefab = load(ingredient_dict[Ingredients.keys()[sack_ingredient]])
-	pass
 
 func set_hovered(value):
 	if !hovered_indicator:

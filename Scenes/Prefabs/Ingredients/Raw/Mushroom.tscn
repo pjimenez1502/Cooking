@@ -1,14 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://daifus18tkr25"]
+[gd_scene load_steps=5 format=3 uid="uid://daifus18tkr25"]
 
 [ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_wm6vq"]
 [ext_resource type="PackedScene" uid="uid://ce2toto5tf3jr" path="res://Scenes/Prefabs/Ingredients/Cut/CutMushroom.tscn" id="2_cgy3p"]
 [ext_resource type="PackedScene" uid="uid://dn2gbadhqtr40" path="res://Models/Ingredientts/Mushroom.glb" id="4_0qk4f"]
-[ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="4_jofhp"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_huf6a"]
-material = ExtResource("4_jofhp")
-radius = 0.05
-height = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_016kp"]
 radius = 0.0558365
@@ -21,11 +15,6 @@ script = ExtResource("1_wm6vq")
 id = 4
 cut_variant = ExtResource("2_cgy3p")
 target_z = 1.0
-
-[node name="HoveredMesh" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("SphereMesh_huf6a")
-skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_016kp")

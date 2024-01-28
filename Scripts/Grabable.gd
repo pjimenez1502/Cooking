@@ -31,7 +31,6 @@ func grab():
 		CameraPivot.VIEW.FRONT:
 			position.z = target_z
 	if cooking_area:
-		print("aa")
 		cooking_area.set_available(true)
 		cooking_area = null
 	if self_area_collider:

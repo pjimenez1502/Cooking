@@ -1,7 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ccru32x1knod6"]
 
 [ext_resource type="Script" path="res://Scripts/Tools/Knife.gd" id="1_t0l6c"]
-[ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="2_6vcta"]
 [ext_resource type="Material" uid="uid://csyx73a8bn003" path="res://Materials/Shaders/VertexColor.tres" id="2_jso7y"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bxf55"]
@@ -36,6 +35,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bxf55")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo2k1"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 0.580392, 0, 1)
+grow = true
+grow_amount = 0.002
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nqbje"]
 points = PackedVector3Array(-8.47504e-08, -0.0506978, -0.0844927, -8.47504e-08, -0.0466075, -0.185117, 0.00812805, -0.00781581, -0.0302781, 0.00812805, -0.00781581, 0.0302494, 0.00812805, -0.00440278, 0.0622732, -8.47504e-08, -0.0123377, 0.0622732, -0.00812822, -0.00440278, 0.0622732, -0.00812822, -0.00781581, 0.0302494, -0.00812822, -0.00781581, -0.0302781, -0.00812822, -0.00440278, -0.0623018, -8.47504e-08, -0.0318863, -0.264354, 0.00812805, -0.00440278, -0.0623018, 0.00812805, 0.00902358, 0.0622732, -0.00812822, 0.00902358, 0.0622732, -8.47504e-08, 0.0171378, -0.328592, -8.47504e-08, -0.00786893, -0.310725, -0.00812822, 0.00902358, -0.0623018, 0.00812805, 0.00902358, -0.0623018, -8.47504e-08, 0.0171378, 0.0622732, 0.00337815, 0.0171378, -0.0800545, -0.00337991, 0.0171378, -0.0800545, -0.00337991, 0.0171378, -0.197628, 0.00337815, 0.0171378, -0.197628)
 
@@ -60,7 +66,7 @@ transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
 visible = false
 mesh = SubResource("ArrayMesh_520jr")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("2_6vcta")
+surface_material_override/0 = SubResource("StandardMaterial3D_bo2k1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_nqbje")

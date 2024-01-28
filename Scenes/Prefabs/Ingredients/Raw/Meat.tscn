@@ -1,14 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dukwsbyl8s083"]
+[gd_scene load_steps=5 format=3 uid="uid://dukwsbyl8s083"]
 
 [ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_e8fjk"]
 [ext_resource type="PackedScene" uid="uid://bwqrif2ueoej0" path="res://Scenes/Prefabs/Ingredients/Cut/CutOnion.tscn" id="2_4wjiy"]
 [ext_resource type="PackedScene" uid="uid://rea07j57ot6p" path="res://Models/Ingredientts/Meat.glb" id="3_n42ab"]
-[ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="4_rv8dt"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_huf6a"]
-material = ExtResource("4_rv8dt")
-radius = 0.05
-height = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_71e4u"]
 size = Vector3(0.141914, 0.0737343, 0.144318)
@@ -24,11 +18,6 @@ target_z = 1.0
 compatible_areas = ["PAN"]
 
 [node name="Meat2" parent="." instance=ExtResource("3_n42ab")]
-
-[node name="HoveredMesh" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("SphereMesh_huf6a")
-skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00133133, 0.0365505, -0.0144502)

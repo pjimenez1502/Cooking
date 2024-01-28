@@ -20,6 +20,15 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[importer_defaults]
+
+animation_library={
+"gltf/embedded_image_handling": 0
+}
+3d_texture={
+"compress/mode": 0
+}
+
 [input]
 
 LeftClick={

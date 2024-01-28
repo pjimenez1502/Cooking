@@ -31,7 +31,7 @@ var current_content = {
 	"burned_garlic": {"active": false, "cook_time": 0 },
 	#"burned_green_leaves": {"active": false, "cook_time": 0},
 	
-	"SOY": {"active": false},
+	"water": {"active": false},
 }
 var content_refecences = {}
 
@@ -67,7 +67,7 @@ func progress_cooking(delta):
 
 func add_pourable(_pour : FoodDictionary.POURABLE_TYPE):
 	#print(FoodDictionary.POURABLE_TYPE.keys()[pour])
-	print(_pour)
+	print(FoodDictionary.POURABLE_TYPE.keys()[_pour])
 	for content_key in current_content:
 		if content_key == FoodDictionary.POURABLE_TYPE.keys()[_pour]:
 			if current_content[content_key]["active"]:

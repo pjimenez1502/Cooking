@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbaxdrpik7b0m"]
+
+[ext_resource type="Script" path="res://Scripts/Tools/Pourable.gd" id="1_5kk55"]
+[ext_resource type="PackedScene" uid="uid://kivm41egfju3" path="res://Models/Tools/WineBottle.glb" id="2_imoae"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fai0r"]
+size = Vector3(0.251495, 0.356995, 0.228271)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_go56m"]
+radius = 0.141181
+height = 1.00736
+
+[node name="WaterJug" type="AnimatableBody3D"]
+script = ExtResource("1_5kk55")
+target_z = 1.0
+
+[node name="WineBottle2" parent="." instance=ExtResource("2_imoae")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.173, 0)
+shape = SubResource("BoxShape3D_fai0r")
+
+[node name="PourableArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114932, 0, 0.103437)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PourableArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0460227, -0.148278, -0.0370427)
+shape = SubResource("CapsuleShape3D_go56m")

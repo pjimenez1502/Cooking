@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dono37seo1eit"]
+[gd_scene load_steps=7 format=3 uid="uid://dono37seo1eit"]
 
 [ext_resource type="Script" path="res://Scripts/Tools/Pourable.gd" id="1_isl6f"]
-[ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="3_h6i6d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1gvh"]
 
@@ -54,13 +53,6 @@ transform = Transform3D(-0.730615, 0, -0.682789, 0, 1, 0, 0.682789, 0, -0.730615
 [node name="Circle_002" type="MeshInstance3D" parent="Jug"]
 mesh = SubResource("ArrayMesh_cewkc")
 skeleton = NodePath("")
-
-[node name="HoverMesh" type="MeshInstance3D" parent="Jug"]
-transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
-visible = false
-mesh = SubResource("ArrayMesh_cewkc")
-skeleton = NodePath("")
-surface_material_override/0 = ExtResource("3_h6i6d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.173, 0)

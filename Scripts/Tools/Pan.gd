@@ -35,14 +35,14 @@ class_name Pan
 }
 
 func _ready():
+	#current_content = pan_current_content
+	content_refecences = pan_content_refecences
 	
 	var pan_ingredients = $Pan_ingredients
 	pan_ingredients.visible = true
 	for ingredient in pan_ingredients.get_children():
 		ingredient.visible = false
 		
-	#current_content = pan_current_content
-	content_refecences = pan_content_refecences
 
 
 

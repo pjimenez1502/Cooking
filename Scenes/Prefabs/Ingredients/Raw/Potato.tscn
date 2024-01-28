@@ -1,14 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0x27gach4nni"]
+[gd_scene load_steps=5 format=3 uid="uid://d0x27gach4nni"]
 
 [ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_4iqy3"]
 [ext_resource type="PackedScene" uid="uid://cks0ff0lpit2b" path="res://Scenes/Prefabs/Ingredients/Cut/CutPotato.tscn" id="2_632yr"]
 [ext_resource type="PackedScene" uid="uid://baf34q2q0jgxf" path="res://Models/Ingredientts/Potato.glb" id="3_4bv57"]
-[ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="4_ofg8v"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_huf6a"]
-material = ExtResource("4_ofg8v")
-radius = 0.05
-height = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_016kp"]
 radius = 0.0558365
@@ -23,11 +17,6 @@ cut_variant = ExtResource("2_632yr")
 target_z = 1.0
 
 [node name="Potato" parent="." instance=ExtResource("3_4bv57")]
-
-[node name="HoveredMesh" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("SphereMesh_huf6a")
-skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_016kp")

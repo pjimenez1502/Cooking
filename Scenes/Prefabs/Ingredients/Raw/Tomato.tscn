@@ -1,14 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2u4hnaylq7p5"]
+[gd_scene load_steps=5 format=3 uid="uid://b2u4hnaylq7p5"]
 
 [ext_resource type="Script" path="res://Scripts/Ingredient.gd" id="1_2vsd1"]
 [ext_resource type="PackedScene" uid="uid://bgd5qsnk3wy6" path="res://Models/Ingredientts/Tomato.glb" id="2_7sy1b"]
 [ext_resource type="PackedScene" uid="uid://drg5j8frdg07l" path="res://Scenes/Prefabs/Ingredients/Cut/CutTomato.tscn" id="2_e7p1a"]
-[ext_resource type="Material" uid="uid://bwrni334ydcdg" path="res://Materials/HoveredOutline.tres" id="3_uvjtt"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_huf6a"]
-material = ExtResource("3_uvjtt")
-radius = 0.05
-height = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_016kp"]
 radius = 0.0558365
@@ -22,11 +16,6 @@ cut_variant = ExtResource("2_e7p1a")
 target_z = 1.0
 
 [node name="Tomato" parent="." instance=ExtResource("2_7sy1b")]
-
-[node name="HoveredMesh" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("SphereMesh_huf6a")
-skeleton = NodePath("../Tomato")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_016kp")
