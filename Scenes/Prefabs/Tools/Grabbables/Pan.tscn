@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dus6mepmxmcdr"]
+[gd_scene load_steps=15 format=3 uid="uid://dus6mepmxmcdr"]
 
 [ext_resource type="Script" path="res://Scripts/Tools/Pan.gd" id="1_6oftj"]
 [ext_resource type="Script" path="res://Scripts/Tools/CookwareArea.gd" id="1_tm77q"]
-[ext_resource type="Material" uid="uid://csyx73a8bn003" path="res://Materials/Shaders/VertexColor.tres" id="2_m40nc"]
+[ext_resource type="Material" uid="uid://csyx73a8bn003" path="res://Materials/Mats/VertexColor.tres" id="2_m40nc"]
 [ext_resource type="PackedScene" uid="uid://ct6f5nn772wbx" path="res://Models/Ingredientts/Processed/Pan_ingredients.glb" id="4_byelj"]
+[ext_resource type="PackedScene" uid="uid://ctatnt7nolrd8" path="res://Models/Tools/Contents/Ingredients.glb" id="5_e2t6f"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_b4ptw"]
 _surfaces = [{
@@ -53,6 +54,23 @@ radius = 0.228587
 [sub_resource type="SphereShape3D" id="SphereShape3D_dbo76"]
 radius = 0.167148
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fckmn"]
+shading_mode = 0
+albedo_color = Color(0.160784, 0.160784, 0.160784, 1)
+billboard_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_60c6w"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+gravity = Vector3(0, 1, 0)
+scale_min = 0.8
+scale_max = 1.2
+color = Color(0.196078, 0.196078, 0.196078, 1)
+turbulence_noise_strength = 2.14
+
+[sub_resource type="QuadMesh" id="QuadMesh_k4x2k"]
+size = Vector2(0.3, 0.3)
+
 [node name="Pan" type="AnimatableBody3D" node_paths=PackedStringArray("self_area_collider")]
 sync_to_physics = false
 script = ExtResource("1_6oftj")
@@ -77,6 +95,7 @@ shape = SubResource("ConvexPolygonShape3D_yn5ha")
 
 [node name="Pan_ingredients" parent="." instance=ExtResource("4_byelj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0128179, 0.0349558, 0.00609414)
+visible = false
 
 [node name="PourableArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0207977, 0)
@@ -95,3 +114,17 @@ area_name = 6
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PAN"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.121853, 0)
 shape = SubResource("SphereShape3D_dbo76")
+
+[node name="Cooked_particle" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.106209, 0)
+material_override = SubResource("StandardMaterial3D_fckmn")
+emitting = false
+amount = 4
+one_shot = true
+explosiveness = 0.24
+randomness = 0.26
+process_material = SubResource("ParticleProcessMaterial_60c6w")
+draw_pass_1 = SubResource("QuadMesh_k4x2k")
+
+[node name="Ingredients" parent="." instance=ExtResource("5_e2t6f")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1.2, 0, -0.000708513, 0)

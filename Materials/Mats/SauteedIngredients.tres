@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ck7c6wk8j88m7"]
+
+[ext_resource type="Texture2D" uid="uid://1f1uw2okui5b" path="res://Materials/Textures/Ingredients/Ingredients.png" id="1_svwey"]
+
+[resource]
+shading_mode = 0
+albedo_color = Color(0.54902, 0.337255, 0.290196, 1)
+albedo_texture = ExtResource("1_svwey")
+texture_filter = 0

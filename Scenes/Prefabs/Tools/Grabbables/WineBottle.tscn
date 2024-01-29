@@ -10,11 +10,11 @@ size = Vector3(0.251495, 0.356995, 0.228271)
 radius = 0.141181
 height = 1.00736
 
-[node name="WaterJug" type="AnimatableBody3D"]
+[node name="WineBottle" type="AnimatableBody3D"]
 script = ExtResource("1_5kk55")
 target_z = 1.0
 
-[node name="WineBottle2" parent="." instance=ExtResource("2_imoae")]
+[node name="WineBottle" parent="." instance=ExtResource("2_imoae")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.173, 0)

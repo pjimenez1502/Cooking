@@ -1,54 +1,17 @@
 {
-	"sauteed_onion" : {
-		"id": "sauteed_onion",
-		"name": "Sautéed onion",
-		"category" : "COMPONENT",
-		"ingredients" : ["chopped_onion"],
-		"image" : "",
-	},
-	"sauteed_garlic" : {
-		"id": "sauteed_garlic",
-		"name": "Sautéed garlic",
-		"category" : "COMPONENT",
-		"ingredients" : ["chopped_garlic"],
-		"image" : "",
-	},
-	"sauteed_carrot" : {
-		"id": "sauteed_carrot",
-		"name": "Sautéed carrot",
-		"category" : "COMPONENT",
-		"ingredients" : ["chopped_carrot"],
-		"image" : "",
-	},
-	"sauteed_mushroom" : {
-		"id": "sauteed_mushroom",
-		"name": "Sautéed mushroom",
-		"category" : "COMPONENT",
-		"ingredients" : ["chopped_mushroom"],
-		"image" : "",
-	},
-	
-	
-	
-	"mushroom_plate" : {
-		"id": "mushroom_plate",
-		"name": "Mushroom Plate",
-		"category" : "STARTER",
-		"ingredients" : ["sauteed_onion", "sauteed_garlic","sauteed_mushrooms"],
-		"image" : "",
-	},
-	"vegetable_salad" : {
-		"id": "vegetable_salad",
-		"name": "Vegetable Salad",
-		"category" : "STARTER",
-		"ingredients" : ["chopped_tomato", "chopped_onion", "green_leaves", "chopped_carrot"],
-		"image" : "",
-	},
-	
 	"stew" : {
 		"id": "stew",
 		"name": "Stew",
 		"category": "MAIN",
 		"ingredients": ["chopped_potato", "sauteed_onion", "sauteed_carrot", "sauteed_tomato", "sauteed_meat",]
+	},
+	"meat_plate" : {
+		"id": "meat_plate",
+		"name": "Meat",
+		"category": "MAIN",
+		"ingredients": ["sauteed_onion", "sauteed_carrot", "sauteed_meat",]
 	}
+	
+	
+	
 }

@@ -13,7 +13,7 @@ sync_to_physics = false
 script = ExtResource("1_aym60")
 id = 13
 target_z = 1.0
-compatible_areas = ["Pan", "Pot"]
+compatible_areas = ["PAN", "POT"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00589538, 0.023132, -0.0128906)

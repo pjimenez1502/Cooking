@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dnfwu07bq3c1x"
-path="res://.godot/imported/Pot_ingredients.glb-21571bef6f48bc44934cd629cd9542df.scn"
+uid="uid://ctatnt7nolrd8"
+path="res://.godot/imported/Ingredients.glb-93e319d7d467e94bc9bb63f6763d323b.scn"
 
 [deps]
 
-source_file="res://Models/Tools/Contents/Pot_ingredients.glb"
-dest_files=["res://.godot/imported/Pot_ingredients.glb-21571bef6f48bc44934cd629cd9542df.scn"]
+source_file="res://Models/Tools/Contents/Ingredients.glb"
+dest_files=["res://.godot/imported/Ingredients.glb-93e319d7d467e94bc9bb63f6763d323b.scn"]
 
 [params]
 

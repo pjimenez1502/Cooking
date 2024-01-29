@@ -41,13 +41,6 @@ func release():
 	if self_area_collider:
 		self_area_collider.disabled = false
 
-
-func set_hovered(value):
-	pass
-	#grabbed = false;
-	#if !hovered_indicator:
-		#return
-	#hovered_indicator.visible = value
 	
 func use():
 	pass

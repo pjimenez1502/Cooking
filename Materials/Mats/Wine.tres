@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c6yjr7tva1pp5"]
+
+[ext_resource type="Texture2D" uid="uid://cerd32vkfkgqp" path="res://Materials/Textures/Environment/WineBottle_Color.png" id="1_dodxx"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.304
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("1_dodxx")
+texture_filter = 0

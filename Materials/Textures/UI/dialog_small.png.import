@@ -2,18 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1jaqotqquj02"
-path.s3tc="res://.godot/imported/Pot_ingredients_Ingredients.png-6ba97d2620e708d6c691bc9c15e9d2f4.s3tc.ctex"
+uid="uid://bmhk8id6wqrq3"
+path.s3tc="res://.godot/imported/dialog_small.png-ce283435a82e306714a740db44a20786.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://Models/Tools/Contents/Pot_ingredients_Ingredients.png"
-dest_files=["res://.godot/imported/Pot_ingredients_Ingredients.png-6ba97d2620e708d6c691bc9c15e9d2f4.s3tc.ctex"]
+source_file="res://Materials/Textures/UI/dialog_small.png"
+dest_files=["res://.godot/imported/dialog_small.png-ce283435a82e306714a740db44a20786.s3tc.ctex"]
 
 [params]
 

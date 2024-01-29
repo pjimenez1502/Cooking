@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://4x7a2i5exeff"]
+[gd_scene load_steps=14 format=3 uid="uid://4x7a2i5exeff"]
 
 [ext_resource type="Script" path="res://Scripts/Tools/Pot.gd" id="1_hiapu"]
 [ext_resource type="Script" path="res://Scripts/Tools/CookwareArea.gd" id="1_olryf"]
-[ext_resource type="Material" uid="uid://csyx73a8bn003" path="res://Materials/Shaders/VertexColor.tres" id="2_2qv15"]
-[ext_resource type="PackedScene" uid="uid://dnfwu07bq3c1x" path="res://Models/Tools/Contents/Pot_ingredients.glb" id="4_dxakr"]
+[ext_resource type="Material" uid="uid://csyx73a8bn003" path="res://Materials/Mats/VertexColor.tres" id="2_qfiq1"]
+[ext_resource type="PackedScene" uid="uid://ctatnt7nolrd8" path="res://Models/Tools/Contents/Ingredients.glb" id="4_hd73t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ie6gt"]
 vertex_color_use_as_albedo = true
@@ -49,18 +49,35 @@ radius = 0.219109
 [sub_resource type="SphereShape3D" id="SphereShape3D_pwo4g"]
 radius = 0.167148
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrfmx"]
+shading_mode = 0
+albedo_color = Color(0.160784, 0.160784, 0.160784, 1)
+billboard_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_34pj0"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+gravity = Vector3(0, 1, 0)
+scale_min = 0.8
+scale_max = 1.2
+color = Color(0.196078, 0.196078, 0.196078, 1)
+turbulence_noise_strength = 2.14
+
+[sub_resource type="QuadMesh" id="QuadMesh_dtyuk"]
+size = Vector2(0.3, 0.3)
+
 [node name="Pot" type="AnimatableBody3D" node_paths=PackedStringArray("self_area_collider")]
 sync_to_physics = false
 script = ExtResource("1_hiapu")
 compatible_areas = ["STOVE_L", "STOVE_R"]
-self_area_collider = NodePath("BOWLMOUSEAREA/CollisionShape3D")
+self_area_collider = NodePath("POTMOUSEAREA/CollisionShape3D")
 
 [node name="Pot" type="Node3D" parent="."]
 
 [node name="Pot" type="MeshInstance3D" parent="Pot"]
 mesh = SubResource("ArrayMesh_mpm2v")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("2_2qv15")
+surface_material_override/0 = ExtResource("2_qfiq1")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000488207, 0.0666274, -0.000175461)
@@ -73,15 +90,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0207977, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.263239, 0)
 shape = SubResource("SphereShape3D_ft0fw")
 
-[node name="BOWLMOUSEAREA" type="Area3D" parent="."]
+[node name="POTMOUSEAREA" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225553, 0)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_olryf")
 area_name = 7
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BOWLMOUSEAREA"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="POTMOUSEAREA"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0649108, 0)
 shape = SubResource("SphereShape3D_pwo4g")
 
-[node name="Pot_ingredients" parent="." instance=ExtResource("4_dxakr")]
+[node name="Ingredients" parent="." instance=ExtResource("4_hd73t")]
+
+[node name="Cooked_particle" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.106209, 0)
+material_override = SubResource("StandardMaterial3D_yrfmx")
+emitting = false
+amount = 4
+one_shot = true
+explosiveness = 0.24
+randomness = 0.26
+process_material = SubResource("ParticleProcessMaterial_34pj0")
+draw_pass_1 = SubResource("QuadMesh_dtyuk")

@@ -343,6 +343,9 @@ compatible_areas = ["KNIFEREST"]
 
 [node name="Pot" parent="Interactuable" instance=ExtResource("9_gam3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12319, 0.956852, 0.612921)
+pourable_type = null
+grabbed_view = null
+target_z = null
 compatible_areas = ["STOVE_L", "STOVE_R", "CENTERBOARD"]
 
 [node name="Pan" parent="Interactuable" instance=ExtResource("8_q2hjc")]

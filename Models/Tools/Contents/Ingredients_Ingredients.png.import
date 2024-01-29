@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1jaqotqquj02"
-path.s3tc="res://.godot/imported/Pot_ingredients_Ingredients.png-6ba97d2620e708d6c691bc9c15e9d2f4.s3tc.ctex"
+uid="uid://bhbgt1bndjmkm"
+path.s3tc="res://.godot/imported/Ingredients_Ingredients.png-e3b7a0ae54d3520abca02a6d995bddea.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Models/Tools/Contents/Pot_ingredients_Ingredients.png"
-dest_files=["res://.godot/imported/Pot_ingredients_Ingredients.png-6ba97d2620e708d6c691bc9c15e9d2f4.s3tc.ctex"]
+source_file="res://Models/Tools/Contents/Ingredients_Ingredients.png"
+dest_files=["res://.godot/imported/Ingredients_Ingredients.png-e3b7a0ae54d3520abca02a6d995bddea.s3tc.ctex"]
 
 [params]
 

@@ -9,6 +9,7 @@ var prev_mouse_position #TODO: DELETE
 var next_mouse_position #TODO: DELETE
 
 func _ready():
+	
 	pass # Replace with function body.
 
 func _physics_process(delta):
@@ -22,10 +23,9 @@ func _input(event):
 		mouse = event.position
 	
 	if event.is_action_pressed("LeftClick"):
+		check_grab_ingredientsack()
+		
 		if !grabbed:
-			check_grab_ingredientsack()
-			
-			prev_mouse_position = get_viewport().get_mouse_position()
 			grab_hovered()
 		elif hovered_mousearea and hovered_mousearea.check_area_compatible(grabbed.compatible_areas):
 			release_grabbed(hovered_mousearea)
@@ -57,12 +57,10 @@ func check_hover():
 	if result.collider is Grabable:
 		clearHovered()
 		hovered = result.collider
-		result.collider.set_hovered(true)
 
 func clearHovered():
 	if hovered:
 		hovered.release()
-		hovered.set_hovered(false)
 		hovered = null
 
 func grab_hovered():
@@ -80,6 +78,11 @@ func release_grabbed(hovered_mousearea):
 		hovered = null
 		grabbed = null
 		return
+	
+	if hovered_mousearea is DeliveryArea:
+		
+		grabbed.release()
+		hovered_mousearea.delivered(grabbed)
 		
 	hovered_mousearea.set_available(false)
 	grabbed.cooking_area = hovered_mousearea
@@ -87,8 +90,12 @@ func release_grabbed(hovered_mousearea):
 	hovered = null
 	grabbed = null
 	
-	
 	#switch_view(CameraPivot.VIEW.FRONT)
+	
+func delete_grabbed():
+	grabbed.queue_free()
+	hovered = null
+	grabbed = null
 
 var hovered_mousearea
 func grabbed_movement(delta):
@@ -112,9 +119,14 @@ func grabbed_movement(delta):
 	prev_mouse_position = next_mouse_position
 
 func check_grab_ingredientsack():
-	var ingredientsack_area = screen_point_to_ray(000100) # LAYER 3
+	prev_mouse_position = get_viewport().get_mouse_position()
+	var ingredientsack_area = screen_point_to_ray(000100) # LAYER 3 (IngredientSacks)
 	if ingredientsack_area:
-		#print(ingredientsack_area["collider"])
+		if grabbed is Ingredient:
+			delete_grabbed()
+		elif grabbed:
+			return
+		
 		grabbed = ingredientsack_area["collider"].get_parent().instantiate_ingredient()
 
 
