@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://ccru32x1knod6" path="res://Scenes/Prefabs/Tools/Grabbables/Knife.tscn" id="10_ue45u"]
 [ext_resource type="PackedScene" uid="uid://dbaxdrpik7b0m" path="res://Scenes/Prefabs/Tools/Grabbables/WineBottle.tscn" id="15_tkbs1"]
 [ext_resource type="PackedScene" uid="uid://2fj02bj4m35x" path="res://Scenes/Prefabs/Ingredients/Raw/Garlic.tscn" id="17_4tpp4"]
-[ext_resource type="PackedScene" uid="uid://pel7gn02j75f" path="res://Scenes/Prefabs/Tools/Grabbables/Bowl.tscn" id="17_ax1lg"]
 [ext_resource type="PackedScene" uid="uid://dono37seo1eit" path="res://Scenes/Prefabs/Tools/Grabbables/WaterJug.tscn" id="18_bcevn"]
 [ext_resource type="PackedScene" uid="uid://ddlgr56iw3uel" path="res://Scenes/Prefabs/Tools/MeatTable.tscn" id="19_abqss"]
+[ext_resource type="PackedScene" uid="uid://b6wxcu53d40i2" path="res://Scenes/Prefabs/Tools/Bowl_Stack.tscn" id="20_w4oue"]
 [ext_resource type="PackedScene" uid="uid://bluh10ckcjpb3" path="res://Models/Environment/Dungeon.glb" id="21_vh0xr"]
 [ext_resource type="PackedScene" uid="uid://cysuuewg7dhus" path="res://Scenes/Prefabs/Guest.tscn" id="22_mufpv"]
 
@@ -149,6 +149,9 @@ sack_ingredient = 4
 
 [node name="MeatTable" parent="Base/Dungeon/IngredientSacks" instance=ExtResource("19_abqss")]
 transform = Transform3D(0.785591, 0, 0.151153, 0, 0.8, 0, -0.151153, 0, 0.785591, 0.028883, 0.871734, 0.0635179)
+
+[node name="BowlStack" parent="Base/Dungeon/IngredientSacks" instance=ExtResource("20_w4oue")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.26108, 0.862255, 0.118899)
 
 [node name="MouseAreas" type="Node" parent="Base/Dungeon"]
 
@@ -350,9 +353,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.644834, 0.929896, 0.627126
 collision_layer = 3
 collision_mask = 3
 compatible_areas = ["STOVE_L", "STOVE_R", "CENTERBOARD"]
-
-[node name="Bowl" parent="Interactuable" instance=ExtResource("17_ax1lg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24059, 0.864235, 0.157346)
 
 [node name="WaterJug" parent="Interactuable" instance=ExtResource("18_bcevn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.834318, 0.871734, 0.17387)

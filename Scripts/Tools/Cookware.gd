@@ -68,7 +68,7 @@ func progress_cooking(delta):
 			continue
 		
 		current_content[content_key]["cook_time"] += (delta * content_references[content_key]["cook_multiplier"] * cookware_speed)
-		print(current_content[content_key]["cook_time"])
+		#print(current_content[content_key]["cook_time"])
 		if current_content[content_key]["cook_time"] >= 100:
 			match current_content[content_key]["cook_stage"]:
 				0:

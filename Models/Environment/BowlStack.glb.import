@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://r0rmheaff4cd"
-path="res://.godot/imported/Bowl.glb-0e7ffcebeca360fa0c5dbbd20c8a2137.scn"
+uid="uid://bodjtgcy8qso0"
+path="res://.godot/imported/BowlStack.glb-f7e3919cf6b52824b665b30b909181ce.scn"
 
 [deps]
 
-source_file="res://Models/Tools/Bowl.glb"
-dest_files=["res://.godot/imported/Bowl.glb-0e7ffcebeca360fa0c5dbbd20c8a2137.scn"]
+source_file="res://Models/Environment/BowlStack.glb"
+dest_files=["res://.godot/imported/BowlStack.glb-f7e3919cf6b52824b665b30b909181ce.scn"]
 
 [params]
 

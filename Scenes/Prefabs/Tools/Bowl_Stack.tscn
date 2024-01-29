@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6wxcu53d40i2"]
+
+[ext_resource type="Script" path="res://Scripts/IngredientSack.gd" id="1_etu76"]
+[ext_resource type="PackedScene" uid="uid://bodjtgcy8qso0" path="res://Models/Environment/BowlStack.glb" id="2_iklyl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6ngvq"]
+radius = 0.217712
+
+[node name="BowlStack" type="Node3D"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+script = ExtResource("1_etu76")
+sack_ingredient = 6
+
+[node name="BowlStack" parent="." instance=ExtResource("2_iklyl")]
+
+[node name="CollisionShape3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164375, 0.010265)
+shape = SubResource("SphereShape3D_6ngvq")
+
+[connection signal="input_event" from="CollisionShape3D" to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="CollisionShape3D" to="." method="set_hovered" binds= [true]]
+[connection signal="mouse_exited" from="CollisionShape3D" to="." method="set_hovered" binds= [false]]
