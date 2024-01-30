@@ -45,6 +45,7 @@ func spawn_guest(slot : int):
 	instance.target_position = Vector3(guest_slots[slot]["position"], 0, -0.7)
 	guests_parent.add_child(instance)
 	instance.choosen_meal = choose_recipe()
+	instance.init_guest()
 	return instance
 
 func free_slot(slot : int):

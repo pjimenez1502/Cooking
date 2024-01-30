@@ -3,12 +3,14 @@
 		"id": "stew",
 		"name": "Stew",
 		"category": "MAIN",
+		"image": "stew.png",
 		"ingredients": ["chopped_potato", "sauteed_onion", "sauteed_carrot", "sauteed_tomato", "sauteed_meat",]
 	},
 	"meat_plate" : {
 		"id": "meat_plate",
 		"name": "Meat",
 		"category": "MAIN",
+		"image": "meat.png",
 		"ingredients": ["sauteed_onion", "sauteed_carrot", "sauteed_meat",]
 	}
 	

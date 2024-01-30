@@ -3,7 +3,6 @@ extends Node3D
 var transparency
 var starting_position = Vector3(5,0,-1)
 var target_position : Vector3
-var walking : bool
 var slot : int
 
 @onready var clothes = $Clothes
@@ -18,22 +17,38 @@ var slot : int
 
 var choosen_meal
 
-func _ready():
+@onready var dialog_sprite = $Dialog/DialogSprite
+@onready var meal_icon = $Dialog/DialogSprite/MealIcon
+const MEAL_ICON_ROUTE = "res://Materials/Textures/UI/Meal_icons/"
+
+
+func init_guest():
 	position = starting_position
 	clothes.texture = get_texture(clothes_dictionary)
 	face.texture =  get_texture(faces_dictionary)
 	
 	face.visible = true
 	face.transparency = 0.8
-	walking = true
-
+	dialog_sprite.visible = false
+	
+	meal_icon.texture = load(MEAL_ICON_ROUTE + choosen_meal["image"])
+	
+	print(meal_icon)
+	
+	await get_tree().create_timer(2 + 0.5 * slot).timeout
+	on_spot_arrival()
+	
 func _physics_process(delta):
 	#position = lerp(position, target_position, delta * 1)
 	position = position.move_toward(target_position, delta * 2)
 	face.transparency = lerp(face.transparency, 1.0, delta * 1)
 	
-	await get_tree().create_timer(1.5).timeout
-	walking = false
+	
+
+func on_spot_arrival():
+	dialog_sprite.visible = true
+	dialog_sprite.play("default", randf_range(0.9, 1.1))
+	
 
 func evaluate_meal():
 	print("choosen meal: ", choosen_meal)

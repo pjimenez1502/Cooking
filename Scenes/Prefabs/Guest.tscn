@@ -1,9 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://cysuuewg7dhus"]
+[gd_scene load_steps=10 format=3 uid="uid://cysuuewg7dhus"]
 
 [ext_resource type="Script" path="res://Scripts/Guest.gd" id="1_vvaxm"]
 [ext_resource type="Texture2D" uid="uid://x5a88uguh4gy" path="res://Materials/Textures/Guests/Clothes/Long_Robes.png" id="2_u8jda"]
 [ext_resource type="Texture2D" uid="uid://cfwmrxkctprxq" path="res://Materials/Textures/Guests/Faces/Guest_skeleton.png" id="3_oxva4"]
-[ext_resource type="Texture2D" uid="uid://bmhk8id6wqrq3" path="res://Materials/Textures/UI/dialog_small.png" id="4_03jop"]
+[ext_resource type="Texture2D" uid="uid://ta0q6vhtwh78" path="res://Materials/Textures/UI/dialog_small_sheet.png" id="4_2e2x2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og0ue"]
+atlas = ExtResource("4_2e2x2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tokcx"]
+atlas = ExtResource("4_2e2x2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c52p"]
+atlas = ExtResource("4_2e2x2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apcse"]
+atlas = ExtResource("4_2e2x2")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8bf51"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og0ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tokcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c52p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apcse")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="Guest" type="Node3D"]
 script = ExtResource("1_vvaxm")
@@ -24,9 +60,15 @@ texture = ExtResource("3_oxva4")
 
 [node name="Dialog" type="Node3D" parent="."]
 
-[node name="Sprite3D" type="Sprite3D" parent="Dialog"]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.367512, 1.74522, 0.0263664)
-modulate = Color(0.145098, 0.0823529, 0.0745098, 1)
+[node name="DialogSprite" type="AnimatedSprite3D" parent="Dialog"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.367512, 1.74522, 0.0263664)
+modulate = Color(0.47451, 0.47451, 0.47451, 1)
 billboard = 1
 texture_filter = 0
-texture = ExtResource("4_03jop")
+sprite_frames = SubResource("SpriteFrames_8bf51")
+frame_progress = 0.331619
+
+[node name="MealIcon" type="Sprite3D" parent="Dialog/DialogSprite"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.0138028)
+billboard = 1
+texture_filter = 0

@@ -255,7 +255,7 @@ shape = SubResource("SphereShape3D_ew4jl")
 [node name="DeliveryPoints" type="Node" parent="Base/Dungeon/MouseAreas"]
 
 [node name="DELIVERY1" type="Area3D" parent="Base/Dungeon/MouseAreas/DeliveryPoints"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, 1.1584, 1.35492, -0.283371)
+transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, 1.35, 1.265, -0.326)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("6_qmnwt")
@@ -265,7 +265,7 @@ area_name = 8
 shape = SubResource("SphereShape3D_ew4jl")
 
 [node name="DELIVERY2" type="Area3D" parent="Base/Dungeon/MouseAreas/DeliveryPoints"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, 0.437014, 1.35492, -0.283371)
+transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, 0.5, 1.265, -0.326)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("6_qmnwt")
@@ -276,7 +276,7 @@ area_name = 8
 shape = SubResource("SphereShape3D_ew4jl")
 
 [node name="DELIVERY3" type="Area3D" parent="Base/Dungeon/MouseAreas/DeliveryPoints"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, -0.385507, 1.35492, -0.283371)
+transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, -0.5, 1.265, -0.326)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("6_qmnwt")
@@ -287,7 +287,7 @@ area_name = 8
 shape = SubResource("SphereShape3D_ew4jl")
 
 [node name="DELIVERY4" type="Area3D" parent="Base/Dungeon/MouseAreas/DeliveryPoints"]
-transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, -1.14061, 1.35492, -0.283371)
+transform = Transform3D(1, 0, 0, 0, 0.807043, -0.590493, 0, 0.590493, 0.807043, -1.35, 1.265, -0.326)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("6_qmnwt")
