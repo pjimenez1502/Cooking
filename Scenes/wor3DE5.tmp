@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://c6psggx8qgdat"]
 
-[ext_resource type="Script" path="res://Scripts/HandsControl.gd" id="1_8arvf"]
+[ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="1_8arvf"]
 [ext_resource type="Script" path="res://Scripts/Guest_Manager.gd" id="1_83nuh"]
 [ext_resource type="Script" path="res://Scripts/CameraPivot.gd" id="2_r0yoa"]
 [ext_resource type="Script" path="res://Scripts/Tools/CookingArea.gd" id="3_du6xc"]

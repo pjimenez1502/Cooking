@@ -2,21 +2,16 @@ extends Camera3D
 
 @onready var camera_pivot = $".."
 var mouse = Vector2()
-var hovered: Grabable
 var grabbed: Grabable
 
 var prev_mouse_position #TODO: DELETE
 var next_mouse_position #TODO: DELETE
 
 func _ready():
-	
-	pass # Replace with function body.
+	pass
 
 func _physics_process(delta):
-	check_hover()
 	grabbed_movement(delta)
-
-
 
 func _input(event):
 	if event is InputEventMouse:
@@ -26,56 +21,44 @@ func _input(event):
 		check_grab_ingredientsack()
 		
 		if !grabbed:
-			grab_hovered()
-		elif hovered_mousearea and hovered_mousearea.check_area_compatible(grabbed.compatible_areas):
+			try_grabbing()
+			return
+		print(hovered_mousearea)
+		if hovered_mousearea and hovered_mousearea.check_area_compatible(grabbed.compatible_areas):
 			release_grabbed(hovered_mousearea)
-	
 	
 	if event.is_action_pressed("RightClick"):
 		if grabbed:
 			grabbed.use()
 
-func check_hover():
-	if grabbed:
-		return
-	
-	var worldspace = get_world_3d().direct_space_state
-	var start = project_ray_origin(mouse)
-	var end = project_position(mouse, 1000)
-	var result = worldspace.intersect_ray(PhysicsRayQueryParameters3D.create(start, end, 1))
-	
-	if !result || !result.collider:
-		clearHovered()
-		return
-	if !result.collider is Grabable:
-		clearHovered()
-		return
-		
-	if result.collider == hovered:
-		return
-		
-	if result.collider is Grabable:
-		clearHovered()
-		hovered = result.collider
 
-func clearHovered():
-	if hovered:
-		hovered.release()
-		hovered = null
 
-func grab_hovered():
-	if !hovered:
-		return
-	grabbed = hovered
-	hovered.grab()
-	#switch_view(hovered.grabbed_view)
+func check_grab_ingredientsack():
+	prev_mouse_position = get_viewport().get_mouse_position() ##check
+	
+	var ingredientsack_area = screen_point_to_ray(0b100) # LAYER 3 (IngredientSacks)
+	if ingredientsack_area:
+		if !grabbed:
+			grabbed = ingredientsack_area["collider"].get_parent().instantiate_ingredient()
+			return
+		if grabbed is Ingredient:
+			delete_grabbed()
+
+func try_grabbing():
+	var grabbable_collision = screen_point_to_ray(0b100000) # LAYER 6 (GRABBABLES)
+	if grabbable_collision:
+		grabbed = grabbable_collision["collider"].get_parent()
+		grabbed.grab()
+		print("Grabbing: ", grabbed.name)
+
+
 
 func release_grabbed(hovered_mousearea):
+	print("Releasing: ", grabbed.name)
 	if hovered_mousearea is CookwareArea:
 		hovered_mousearea.get_parent().add_ingredient(grabbed.id)
 		#grabbed.release()
 		grabbed.queue_free()
-		hovered = null
 		grabbed = null
 		return
 	
@@ -87,23 +70,21 @@ func release_grabbed(hovered_mousearea):
 	hovered_mousearea.set_available(false)
 	grabbed.cooking_area = hovered_mousearea
 	grabbed.release()
-	hovered = null
 	grabbed = null
 	
 	#switch_view(CameraPivot.VIEW.FRONT)
 	
 func delete_grabbed():
 	grabbed.queue_free()
-	hovered = null
 	grabbed = null
 
 var hovered_mousearea
 func grabbed_movement(delta):
 	if !grabbed:
 		return
-	grabbed.position = screen_point_to_ray(1000).position
+	grabbed.position = screen_point_to_ray(0b1000).position # LAYER 4 (MOUSEPLANE)
 	
-	var mouse_area_collision = screen_point_to_ray(10000) # LAYER 5 (MOUSEAREAS)
+	var mouse_area_collision = screen_point_to_ray(0b10000) # LAYER 5 (MOUSEAREAS)
 	if mouse_area_collision:
 		hovered_mousearea = mouse_area_collision["collider"]
 		if hovered_mousearea.check_area_compatible(grabbed.compatible_areas):
@@ -118,54 +99,38 @@ func grabbed_movement(delta):
 	
 	prev_mouse_position = next_mouse_position
 
-func check_grab_ingredientsack():
-	prev_mouse_position = get_viewport().get_mouse_position()
-	var ingredientsack_area = screen_point_to_ray(000100) # LAYER 3 (IngredientSacks)
-	if ingredientsack_area:
-		if grabbed is Ingredient:
-			delete_grabbed()
-		elif grabbed:
-			return
-		
-		grabbed = ingredientsack_area["collider"].get_parent().instantiate_ingredient()
 
 
 const Swing_Speed_Threshold := 50.0
 enum SwingStates{ DOWN, UP, RIGHT, LEFT, NEUTRAL}
 var currentSwing := SwingStates.NEUTRAL
 func check_mouse_swings(mouse_speed:Vector2):
-	if !hovered is Tool:
+	if !grabbed is Tool:
 		return
 	if (mouse_speed.y > Swing_Speed_Threshold):
 		if !currentSwing == SwingStates.DOWN:
 			#print("DOWNSWING")
-			hovered.downswing()
+			grabbed.downswing()
 			currentSwing = SwingStates.DOWN
 	elif (mouse_speed.y < -Swing_Speed_Threshold):
 		if !currentSwing == SwingStates.UP:
 			#print("UPSWING")
-			hovered.upswing()
+			grabbed.upswing()
 			currentSwing = SwingStates.UP
 	elif (mouse_speed.x > Swing_Speed_Threshold):
 		if !currentSwing == SwingStates.RIGHT:
 			#print("RIGHTSWING")
-			hovered.rightswing()
+			grabbed.rightswing()
 			currentSwing = SwingStates.RIGHT
 	elif (mouse_speed.x < -Swing_Speed_Threshold):
 		if !currentSwing == SwingStates.LEFT:
-			hovered.leftswing()
+			grabbed.leftswing()
 			#print("LEFTSWING")
 			currentSwing = SwingStates.LEFT
 	else:
 		currentSwing = SwingStates.NEUTRAL
 
-func switch_view(view:CameraPivot.VIEW):
-	
-	match view:
-		CameraPivot.VIEW.TOP:
-			camera_pivot.switch_to_top_view()
-		CameraPivot.VIEW.FRONT:
-			camera_pivot.switch_to_front_view()
+
 
 func screen_point_to_ray(layer_mask) -> Dictionary:
 	

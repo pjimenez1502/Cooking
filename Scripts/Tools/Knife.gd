@@ -4,6 +4,7 @@ var interaction_timer
 var chopping := false
 
 func _ready():
+	super._ready()
 	interaction_timer = Timer.new()
 	add_child(interaction_timer)
 

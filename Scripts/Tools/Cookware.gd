@@ -9,12 +9,13 @@ const RAW_SHADER = preload("res://Materials/Mats/Ingredients.tres")
 const SAUTEED_SHADER = preload("res://Materials/Mats/SauteedIngredients.tres")
 const BURNED_SHADER = preload("res://Materials/Mats/BurnedIngredients.tres")
 
+func _ready():
+	super._ready()
+	ready_ingredients()
+	
 func _physics_process(delta):
 	super._physics_process(delta)
 	progress_cooking(delta) #TODO: REENABLE
-
-func _ready():
-	ready_ingredients()
 
 @onready var current_content = {
 	"chopped_onion": 	{"active": false, "cook_time": 0, "cook_stage": 0 },

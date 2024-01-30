@@ -13,7 +13,17 @@ var current_rotation : Quaternion
 
 func _ready():
 	compatible_areas.push_front("CENTERBOARD")
-	pass # Replace with function body.
+	
+	var grabbable_area = Area3D.new()
+	grabbable_area.collision_layer = 0b100000 ##layer 6 (GRABBABLE)
+	var grabbable_collider = CollisionShape3D.new()
+	
+	grabbable_collider.shape = SphereShape3D.new()
+	grabbable_collider.shape.radius = 0.1
+	
+	grabbable_area.add_child(grabbable_collider)
+	add_child(grabbable_area)
+	
 
 func _process(_delta):
 	pass
@@ -25,11 +35,6 @@ func _physics_process(delta):
 	
 func grab():
 	grabbed = true
-	match grabbed_view:
-		CameraPivot.VIEW.TOP:
-			position.y = target_height
-		CameraPivot.VIEW.FRONT:
-			position.z = target_z
 	if cooking_area:
 		cooking_area.set_available(true)
 		cooking_area = null

@@ -33,8 +33,6 @@ func init_guest():
 	
 	meal_icon.texture = load(MEAL_ICON_ROUTE + choosen_meal["image"])
 	
-	print(meal_icon)
-	
 	await get_tree().create_timer(2 + 0.5 * slot).timeout
 	on_spot_arrival()
 	
