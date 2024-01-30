@@ -48,8 +48,30 @@ func on_spot_arrival():
 	dialog_sprite.play("default", randf_range(0.9, 1.1))
 	
 
-func evaluate_meal():
-	print("choosen meal: ", choosen_meal)
+func evaluate_meal(bowl_ingredients, ingredients_stage):
+	var meal_score = 5
+	dialog_sprite.visible = false
+	var target_ingredients = 0
+	var leftover_ingredients = bowl_ingredients
+	for ingredient in choosen_meal["ingredients"]:
+		if bowl_ingredients.has(ingredient):
+			leftover_ingredients.erase(ingredient)
+			target_ingredients += 1
+	
+	##reduce score if missing ingredients or unrequested ingredients
+	meal_score -= (choosen_meal["ingredients"].size() - target_ingredients) + leftover_ingredients.size()
+	##reduce score if unkooked or overcooked ingredients
+	for cook_stage in ingredients_stage:
+		if cook_stage != 1:
+			meal_score -=1
+	
+	#print(leftover_ingredients)
+	#print(choosen_meal["ingredients"].size() ," - ",target_ingredients)
+	#print(ingredients_stage)
+	print (meal_score)
+	pass
+	
+func pay_and_leave():
 	pass
 
 func get_texture(textures_dictionary: Dictionary) -> Texture2D:

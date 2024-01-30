@@ -123,3 +123,4 @@ func set_ingredient_active(content_key: String, active: bool, cook_stage: int):
 	current_content[content_key]["cook_time"] = 0
 	current_content[content_key]["active"] = active
 	content_references[content_key]["object"].visible = active
+	content_references[content_key]["object"].mesh.surface_set_material(0, RAW_SHADER)

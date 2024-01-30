@@ -23,7 +23,6 @@ func _input(event):
 		if !grabbed:
 			try_grabbing()
 			return
-		print(hovered_mousearea)
 		if hovered_mousearea and hovered_mousearea.check_area_compatible(grabbed.compatible_areas):
 			release_grabbed(hovered_mousearea)
 	
@@ -49,12 +48,12 @@ func try_grabbing():
 	if grabbable_collision:
 		grabbed = grabbable_collision["collider"].get_parent()
 		grabbed.grab()
-		print("Grabbing: ", grabbed.name)
+		#print("Grabbing: ", grabbed.name)
 
 
 
 func release_grabbed(hovered_mousearea):
-	print("Releasing: ", grabbed.name)
+	#print("Releasing: ", grabbed.name)
 	if hovered_mousearea is CookwareArea:
 		hovered_mousearea.get_parent().add_ingredient(grabbed.id)
 		#grabbed.release()
