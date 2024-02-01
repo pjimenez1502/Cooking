@@ -2,7 +2,8 @@ extends CookingArea
 class_name DeliveryArea
 
 @export var delivery_slot : int
-@onready var guest_manager = $"../../../../../Guest_manager"
+@onready var guest_manager = $"../../../Guest_manager"
+
 
 func delivered(bowl):
 	

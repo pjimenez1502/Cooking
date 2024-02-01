@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Cooking"
-run/main_scene="res://Scenes/world.tscn"
+run/main_scene="res://Scenes/Game_view.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ridiculous_coding/plugin.cfg")
 
 [importer_defaults]
 
@@ -49,3 +53,7 @@ RightClick={
 3d_physics/layer_4="mouseplane"
 3d_physics/layer_5="MouseArea"
 3d_physics/layer_6="Grabable"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"

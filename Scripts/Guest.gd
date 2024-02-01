@@ -1,56 +1,39 @@
 extends Node3D
 
 var transparency
-var starting_position = Vector3(5,0,-1)
+var starting_position = Vector3(0,0,-3)
 var target_position : Vector3
 var slot : int
 
-@onready var clothes = $Clothes
-@onready var face = $Face
-
-@onready var faces_dictionary = {
-	"SKELETON": "res://Materials/Textures/Guests/Faces/Guest_skeleton.png",
-}
-@onready var clothes_dictionary = {
-	"Long_robes": "res://Materials/Textures/Guests/Clothes/Long_Robes.png"
-}
+var movement_speed = 1
 
 var choosen_meal
 
-@onready var dialog_sprite = $Dialog/DialogSprite
-@onready var meal_icon = $Dialog/DialogSprite/MealIcon
 const MEAL_ICON_ROUTE = "res://Materials/Textures/UI/Meal_icons/"
 
 
 func init_guest():
 	position = starting_position
-	clothes.texture = get_texture(clothes_dictionary)
-	face.texture =  get_texture(faces_dictionary)
 	
-	face.visible = true
-	face.transparency = 0.8
-	dialog_sprite.visible = false
-	
-	meal_icon.texture = load(MEAL_ICON_ROUTE + choosen_meal["image"])
 	
 	await get_tree().create_timer(2 + 0.5 * slot).timeout
 	on_spot_arrival()
 	
+	$Guest_3/AnimationPlayer.play("Idle")
+	$Guest_2/AnimationPlayer.play("Idle")
+	
 func _physics_process(delta):
 	#position = lerp(position, target_position, delta * 1)
-	position = position.move_toward(target_position, delta * 2)
-	face.transparency = lerp(face.transparency, 1.0, delta * 1)
-	
-	
+	position = position.move_toward(target_position, delta * movement_speed)
+
 
 func on_spot_arrival():
-	dialog_sprite.visible = true
-	dialog_sprite.play("default", randf_range(0.9, 1.1))
-	
+	#dialog_sprite.visible = true
+	#dialog_sprite.play("default", randf_range(0.9, 1.1))
+	pass
 
 func evaluate_meal(bowl_ingredients, ingredients_stage):
 	var meal_score = 5
-	dialog_sprite.visible = false
 	var target_ingredients = 0
 	var leftover_ingredients = bowl_ingredients
 	for ingredient in choosen_meal["ingredients"]:
@@ -69,11 +52,16 @@ func evaluate_meal(bowl_ingredients, ingredients_stage):
 	#print(choosen_meal["ingredients"].size() ," - ",target_ingredients)
 	#print(ingredients_stage)
 	print (meal_score)
+	pay_and_leave()
 	pass
 	
 func pay_and_leave():
+	target_position = starting_position
 	pass
 
 func get_texture(textures_dictionary: Dictionary) -> Texture2D:
 	var key = textures_dictionary.keys()[randi_range(0, textures_dictionary.size()-1)]
 	return load(textures_dictionary[key])
+
+
+

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bkscpn20fci2d"]
+
+[ext_resource type="Texture2D" uid="uid://b8ejssre3q2pn" path="res://Materials/Textures/Guests/Guest_2_Color.png" id="1_vtack"]
+
+[resource]
+shading_mode = 0
+diffuse_mode = 3
+disable_ambient_light = true
+albedo_texture = ExtResource("1_vtack")
+texture_filter = 0

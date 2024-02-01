@@ -6,5 +6,6 @@
 shading_mode = 0
 diffuse_mode = 3
 specular_mode = 1
+disable_ambient_light = true
 albedo_texture = ExtResource("1_l1508")
 texture_filter = 0

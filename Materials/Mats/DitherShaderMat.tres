@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://ce4xr427y8ty8"]
+
+[ext_resource type="Shader" path="res://Materials/Shaders/DitherShading.gdshader" id="1_siu6m"]
+[ext_resource type="Texture2D" uid="uid://bc070ruy2x32o" path="res://Materials/Textures/UI/dither shade pallete.png" id="2_jt3rl"]
+[ext_resource type="Texture2D" uid="uid://dcgw7f44f80aa" path="res://Materials/Textures/UI/dither_map.bmp" id="3_gb12e"]
+
+[resource]
+shader = ExtResource("1_siu6m")
+shader_parameter/u_bit_depth = 32
+shader_parameter/u_contrast = 1.0
+shader_parameter/u_offset = 0.5
+shader_parameter/u_dither_size = 1
+shader_parameter/mix_mutliplier = 3.0
+shader_parameter/u_dither_tex = ExtResource("3_gb12e")
+shader_parameter/u_color_tex = ExtResource("2_jt3rl")

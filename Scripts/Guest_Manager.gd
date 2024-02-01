@@ -8,10 +8,13 @@ var time_between_spawns = 2
 var guest_spawn_timer
 
 var guest_slots = {
-	0:{"available": true, "position": 1.7, "guest": null},
-	1:{"available": true, "position": 0.6, "guest": null},
-	2:{"available": true, "position": -0.6, "guest": null},
-	3:{"available": true, "position": -1.7, "guest": null},
+	0:{"available": true, "position": 0, "guest": null},
+	
+	
+	#0:{"available": true, "position": 1.7, "guest": null},
+	#1:{"available": true, "position": 0.6, "guest": null},
+	#2:{"available": true, "position": -0.6, "guest": null},
+	#3:{"available": true, "position": -1.7, "guest": null},
 }
 
 
@@ -30,7 +33,7 @@ func queue_guest_spawn():
 
 func try_spawn_guest():
 	while check_available_slots():
-		var position_to_check = randi_range(0, 3)
+		var position_to_check = randi_range(0, guest_slots.size()-1)
 		if !guest_slots[position_to_check]["available"]:
 			continue
 		guest_slots[position_to_check]["available"] = false

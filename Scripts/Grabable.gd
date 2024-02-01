@@ -2,7 +2,6 @@ extends AnimatableBody3D
 class_name Grabable
 
 var grabbed : bool
-@export var grabbed_view : CameraPivot.VIEW
 var target_height := 1.2
 @export var target_z := 0.6
 @export var compatible_areas : Array

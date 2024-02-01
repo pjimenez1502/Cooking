@@ -20,7 +20,7 @@ var ingredient_prefab
 var target_node
 
 func _ready():
-	target_node = $"../../../../Interactuable"
+	target_node = $"../../Interactuable"
 	initialize_sack()
 	pass
 

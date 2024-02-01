@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfuwmfbmv4dph"]
+
+[ext_resource type="PackedScene" uid="uid://c6psggx8qgdat" path="res://Scenes/world.tscn" id="1_qr3hd"]
+[ext_resource type="Shader" path="res://Materials/Shaders/Vignette.gdshader" id="2_m3tjq"]
+[ext_resource type="Texture2D" uid="uid://d4dt6nhri4b2y" path="res://Materials/Textures/UI/UI_arrow.png" id="3_di5eh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2to6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_prhin"]
+shader = ExtResource("2_m3tjq")
+shader_parameter/vignette_intensity = 1.0
+shader_parameter/vignette_opacity = 0.3
+shader_parameter/closure = 30.0
+
+[node name="GameView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="World" parent="." instance=ExtResource("1_qr3hd")]
+
+[node name="UP_Button" type="Button" parent="."]
+top_level = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 75.0
+grow_horizontal = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t2to6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t2to6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t2to6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t2to6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t2to6")
+
+[node name="UpArrow" type="TextureRect" parent="UP_Button"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 9.0
+offset_right = -64.0
+offset_bottom = 17.0
+grow_horizontal = 2
+scale = Vector2(9.95, 9.95)
+texture = ExtResource("3_di5eh")
+stretch_mode = 4
+
+[node name="DOWN_Button" type="Button" parent="."]
+visible = false
+top_level = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t2to6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t2to6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t2to6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t2to6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t2to6")
+
+[node name="UpArrow" type="TextureRect" parent="DOWN_Button"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = -9.0
+offset_right = -64.0
+offset_bottom = -1.0
+grow_horizontal = 2
+scale = Vector2(9.95, 9.95)
+texture = ExtResource("3_di5eh")
+stretch_mode = 4
+flip_v = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Vignette" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_prhin")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="UP_Button" to="World" method="_on_UP_button_pressed"]
+[connection signal="pressed" from="DOWN_Button" to="World" method="_on_DOWN_button_pressed"]

@@ -1,74 +1,119 @@
-[gd_scene load_steps=10 format=3 uid="uid://cysuuewg7dhus"]
+[gd_scene load_steps=5 format=3 uid="uid://cysuuewg7dhus"]
 
 [ext_resource type="Script" path="res://Scripts/Guest.gd" id="1_vvaxm"]
-[ext_resource type="Texture2D" uid="uid://x5a88uguh4gy" path="res://Materials/Textures/Guests/Clothes/Long_Robes.png" id="2_u8jda"]
-[ext_resource type="Texture2D" uid="uid://cfwmrxkctprxq" path="res://Materials/Textures/Guests/Faces/Guest_skeleton.png" id="3_oxva4"]
-[ext_resource type="Texture2D" uid="uid://ta0q6vhtwh78" path="res://Materials/Textures/UI/dialog_small_sheet.png" id="4_2e2x2"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_og0ue"]
-atlas = ExtResource("4_2e2x2")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tokcx"]
-atlas = ExtResource("4_2e2x2")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0c52p"]
-atlas = ExtResource("4_2e2x2")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_apcse"]
-atlas = ExtResource("4_2e2x2")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8bf51"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_og0ue")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tokcx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0c52p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_apcse")
-}],
-"loop": true,
-"name": &"default",
-"speed": 1.0
-}]
+[ext_resource type="PackedScene" uid="uid://dbtcgwxacq1vq" path="res://Models/Guests/Guest_2.glb" id="4_xg0lm"]
+[ext_resource type="PackedScene" uid="uid://dejh2rvohvdcx" path="res://Models/Guests/Guest_3.glb" id="5_te0ox"]
+[ext_resource type="PackedScene" uid="uid://c6oyt8qdkb2yg" path="res://Models/Guests/Guests.glb" id="5_winlw"]
 
 [node name="Guest" type="Node3D"]
 script = ExtResource("1_vvaxm")
 
-[node name="Clothes" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195263, 0.65737, 0)
-modulate = Color(0.501961, 0.501961, 0.501961, 1)
-billboard = 2
-texture_filter = 0
-texture = ExtResource("2_u8jda")
+[node name="Guests_1" parent="." instance=ExtResource("5_winlw")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -0.25, 0)
+visible = false
 
-[node name="Face" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195263, 0.65737, 0.0104774)
-modulate = Color(0.501961, 0.501961, 0.501961, 1)
-billboard = 2
-texture_filter = 0
-texture = ExtResource("3_oxva4")
+[node name="Skeleton3D" parent="Guests_1/G1 Armature" index="0"]
+bones/0/rotation = Quaternion(0.00208373, -0.707104, -0.00208376, 0.707103)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(7.55699e-11, 4.76807e-07, 0.000463764, 1)
+bones/2/rotation = Quaternion(1.26969e-08, -1.71097e-07, -0.0893693, 0.995999)
+bones/3/rotation = Quaternion(1.11631e-08, -1.24798e-07, 0.0720958, 0.997398)
+bones/4/rotation = Quaternion(0.749929, -0.204266, 0.618224, -0.116968)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.0712232, -0.690378, -0.142352, 0.705721)
+bones/6/rotation = Quaternion(0.0173882, 0.688521, -0.0964996, 0.718557)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.0627495, 0.0360828, -0.21159, 0.974675)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.014581, 0.0555374, -0.223475, 0.973017)
+bones/9/rotation = Quaternion(0.00482567, 0.0510675, -0.224712, 0.973074)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(0.0712233, 0.690377, 0.142352, 0.705721)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(0.0173882, -0.688521, 0.0964995, 0.718557)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(0.0627496, -0.0360829, 0.21159, 0.974675)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.014581, -0.0555375, 0.223475, 0.973017)
+bones/15/rotation = Quaternion(0.00482568, -0.0510675, 0.224712, 0.973074)
 
-[node name="Dialog" type="Node3D" parent="."]
+[node name="Guest_2" parent="." instance=ExtResource("4_xg0lm")]
+visible = false
 
-[node name="DialogSprite" type="AnimatedSprite3D" parent="Dialog"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.367512, 1.74522, 0.0263664)
-modulate = Color(0.47451, 0.47451, 0.47451, 1)
-billboard = 1
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_8bf51")
-frame_progress = 0.331619
+[node name="Skeleton3D" parent="Guest_2/G2 Armature" index="0"]
+bones/0/position = Vector3(-7.36474e-09, 0.80492, -0.0384811)
+bones/0/rotation = Quaternion(0.00208373, -0.707104, -0.00208376, 0.707103)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(7.55699e-11, 4.76807e-07, 0.000463764, 1)
+bones/2/rotation = Quaternion(1.26969e-08, -1.71097e-07, -0.0893693, 0.995999)
+bones/3/rotation = Quaternion(1.11631e-08, -1.24798e-07, 0.0720958, 0.997398)
+bones/4/rotation = Quaternion(0.816196, -0.195468, 0.535618, -0.093437)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.803037, -0.176084, -0.403627, 0.40151)
+bones/6/rotation = Quaternion(-0.125362, 0.643297, -0.184662, 0.732362)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.0627495, 0.0360828, -0.21159, 0.974675)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.014581, 0.0555374, -0.223475, 0.973017)
+bones/9/rotation = Quaternion(0.00482567, 0.0510675, -0.224712, 0.973074)
+bones/10/rotation = Quaternion(0.535618, 0.0934371, 0.816196, 0.195468)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(0.803037, 0.176084, 0.403627, 0.40151)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(-0.125362, -0.643296, 0.184662, 0.732362)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(0.0627496, -0.0360829, 0.21159, 0.974675)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.014581, -0.0555375, 0.223475, 0.973017)
+bones/15/rotation = Quaternion(0.00482568, -0.0510675, 0.224712, 0.973074)
+bones/16/position = Vector3(-0.33304, 1.37291, 0.339027)
+bones/16/rotation = Quaternion(-0.109112, 0.711758, 0.692214, 0.0483191)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/position = Vector3(0.33304, 1.37291, 0.339027)
+bones/17/rotation = Quaternion(0.109112, 0.711758, 0.692214, -0.0483191)
+bones/17/scale = Vector3(1, 1, 1)
 
-[node name="MealIcon" type="Sprite3D" parent="Dialog/DialogSprite"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.0138028)
-billboard = 1
-texture_filter = 0
+[node name="AnimationPlayer" parent="Guest_2" index="1"]
+speed_scale = 0.1
+
+[node name="Guest_3" parent="." instance=ExtResource("5_te0ox")]
+
+[node name="Skeleton3D" parent="Guest_3/GUEST ARMATURE" index="0"]
+bones/0/position = Vector3(-7.36474e-09, 0.80492, -0.0384811)
+bones/0/rotation = Quaternion(0.00208373, -0.707104, -0.00208376, 0.707103)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/rotation = Quaternion(7.55699e-11, 4.76807e-07, 0.000463764, 1)
+bones/2/rotation = Quaternion(1.26969e-08, -1.71097e-07, -0.0893693, 0.995999)
+bones/3/rotation = Quaternion(1.11631e-08, -1.24798e-07, 0.0720958, 0.997398)
+bones/4/rotation = Quaternion(0.745275, -0.13972, 0.62835, -0.17384)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.409137, -0.346522, -0.768043, 0.350199)
+bones/6/rotation = Quaternion(-0.0589522, 0.959043, 0.198962, 0.192808)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.0627495, 0.0360828, -0.21159, 0.974675)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.014581, 0.0555374, -0.223475, 0.973017)
+bones/9/rotation = Quaternion(0.00482567, 0.0510675, -0.224712, 0.973074)
+bones/10/rotation = Quaternion(0.62835, 0.17384, 0.745275, 0.139719)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(0.409137, 0.346523, 0.768043, 0.350199)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(-0.0589521, -0.959043, -0.198962, 0.192808)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(0.0627496, -0.0360829, 0.21159, 0.974675)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.014581, -0.0555375, 0.223475, 0.973017)
+bones/15/rotation = Quaternion(0.00482568, -0.0510675, 0.224712, 0.973074)
+bones/16/position = Vector3(-0.238103, 1.32863, 0.286659)
+bones/16/rotation = Quaternion(0.333594, 0.641816, 0.498483, 0.47781)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/position = Vector3(0.238103, 1.32863, 0.286659)
+bones/17/rotation = Quaternion(-0.333594, 0.641816, 0.498483, -0.47781)
+bones/17/scale = Vector3(1, 1, 1)
+
+[node name="AnimationPlayer" parent="Guest_3" index="1"]
+speed_scale = 0.1
+
+[editable path="Guests_1"]
+[editable path="Guest_2"]
+[editable path="Guest_3"]

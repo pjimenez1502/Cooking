@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bfjrc3rhfvdhg"]
+
+[ext_resource type="Texture2D" uid="uid://dixjgkmgq8dtn" path="res://Materials/Textures/Guests/Guest_1_Color.png" id="1_i511d"]
+
+[resource]
+shading_mode = 0
+diffuse_mode = 3
+disable_ambient_light = true
+albedo_texture = ExtResource("1_i511d")
+texture_filter = 0

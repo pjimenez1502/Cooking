@@ -33,7 +33,7 @@ _subresources={
 "materials": {
 "Table": {
 "use_external/enabled": true,
-"use_external/path": "res://Materials/Environment/Table.tres"
+"use_external/path": "res://Materials/Mats/Table.tres"
 }
 }
 }
