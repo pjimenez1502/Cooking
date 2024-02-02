@@ -67,6 +67,7 @@ func release_grabbed(hovered_mousearea):
 		hovered_mousearea.delivered(grabbed)
 		
 	hovered_mousearea.set_available(false)
+	grabbed.global_position = hovered_mousearea.global_position
 	grabbed.cooking_area = hovered_mousearea
 	grabbed.release()
 	grabbed = null
@@ -88,7 +89,7 @@ func grabbed_movement(delta):
 		hovered_mousearea = mouse_area_collision["collider"]
 		if hovered_mousearea.check_area_compatible(grabbed.compatible_areas):
 		#if grabbed.check_area_compatible(hovered_mousearea.name) and hovered_mousearea.available:
-			grabbed.global_position = hovered_mousearea.global_position
+			grabbed.global_position = hovered_mousearea.global_position + Vector3(0, 0.1, 0)
 	else:
 		hovered_mousearea = null
 

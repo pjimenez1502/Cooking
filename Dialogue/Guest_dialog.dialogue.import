@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dyxm5ofh1vuyf"
+path="res://.godot/imported/Guest_dialog.dialogue-c2adc889b436bb2e9c39d5885b542db9.tres"
+
+[deps]
+
+source_file="res://Dialogue/Guest_dialog.dialogue"
+dest_files=["res://.godot/imported/Guest_dialog.dialogue-c2adc889b436bb2e9c39d5885b542db9.tres"]
+
+[params]
+
+defaults=true

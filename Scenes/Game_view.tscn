@@ -24,6 +24,7 @@ mouse_filter = 1
 [node name="World" parent="." instance=ExtResource("1_qr3hd")]
 
 [node name="UP_Button" type="Button" parent="."]
+visible = false
 top_level = true
 texture_filter = 1
 layout_mode = 1

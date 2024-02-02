@@ -1,0 +1,127 @@
+[gd_scene load_steps=14 format=3 uid="uid://b06totxrrdkxm"]
+
+[ext_resource type="Script" path="res://Dialogue/balloon.gd" id="1_gx4qg"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_yecqm"]
+[ext_resource type="Texture2D" uid="uid://c2qvaa10g0c4f" path="res://Materials/Textures/UI/DialogBackground/1.png" id="3_38fpf"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_gdyub"]
+[ext_resource type="Texture2D" uid="uid://dnwk5mommo1l7" path="res://Materials/Textures/UI/DialogBackground/2.png" id="4_1r1bq"]
+[ext_resource type="Texture2D" uid="uid://ckngdmwpgq5qq" path="res://Materials/Textures/UI/DialogBackground/ResponseBackground/1.png" id="5_egmtg"]
+[ext_resource type="Texture2D" uid="uid://cbb2g0lkm78em" path="res://Materials/Textures/UI/DialogBackground/3.png" id="5_x3v74"]
+[ext_resource type="Texture2D" uid="uid://dk8gmmeutgg2x" path="res://Materials/Textures/UI/DialogBackground/ResponseBackground/2.png" id="6_lsl5h"]
+[ext_resource type="Texture2D" uid="uid://bjep5awjul8xk" path="res://Materials/Textures/UI/DialogBackground/ResponseBackground/3.png" id="7_kyfsl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3tsgp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_38fpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x3v74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1r1bq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41lua"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6afu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_avwwf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_egmtg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lsl5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kyfsl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Dialog_Balloon" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_gx4qg")
+
+[node name="Balloon" type="Panel" parent="."]
+unique_name_in_owner = true
+offset_left = 111.0
+offset_top = 108.0
+offset_right = 491.0
+offset_bottom = 268.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Balloon"]
+modulate = Color(0.317647, 0.00392157, 0.0980392, 1)
+texture_filter = 1
+position = Vector2(190, 80)
+sprite_frames = SubResource("SpriteFrames_3tsgp")
+autoplay = "default"
+frame_progress = 0.837294
+
+[node name="Responses" type="MarginContainer" parent="Balloon"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 179.0
+offset_right = 330.0
+offset_bottom = 384.0
+scale = Vector2(1.2, 1.2)
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/Responses" node_paths=PackedStringArray("response_template")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+script = ExtResource("3_gdyub")
+response_template = NodePath("ResponseExample")
+
+[node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_41lua")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_u6afu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u6afu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_u6afu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u6afu")
+text = "Response example"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Balloon/Responses/ResponsesMenu/ResponseExample"]
+modulate = Color(0.317647, 0.00392157, 0.0980392, 1)
+texture_filter = 1
+position = Vector2(164, 15)
+sprite_frames = SubResource("SpriteFrames_avwwf")
+autoplay = "default"
+frame_progress = 0.942863
+
+[node name="Dialogue" type="MarginContainer" parent="Balloon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="DialogueLabel" parent="Balloon/Dialogue" instance=ExtResource("2_yecqm")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 22
+text = "Dialogue..."
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
+
+[connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

@@ -9,14 +9,7 @@ var guest_spawn_timer
 
 var guest_slots = {
 	0:{"available": true, "position": 0, "guest": null},
-	
-	
-	#0:{"available": true, "position": 1.7, "guest": null},
-	#1:{"available": true, "position": 0.6, "guest": null},
-	#2:{"available": true, "position": -0.6, "guest": null},
-	#3:{"available": true, "position": -1.7, "guest": null},
 }
-
 
 func _ready():
 	guest_spawn_timer = Timer.new()
@@ -28,7 +21,6 @@ func queue_guest_spawn():
 	guest_spawn_timer.start(time_between_spawns)
 	await guest_spawn_timer.timeout
 	try_spawn_guest()
-	
 	queue_guest_spawn()
 
 func try_spawn_guest():
@@ -48,6 +40,7 @@ func spawn_guest(slot : int):
 	instance.target_position = Vector3(guest_slots[slot]["position"], 0, -0.7)
 	guests_parent.add_child(instance)
 	instance.choosen_meal = choose_recipe()
+	instance.choosen_drink = choose_drink()
 	instance.init_guest()
 	return instance
 
@@ -70,3 +63,7 @@ func choose_recipe():
 	var selected = recipelist.keys()[randi_range(0, recipelist.size() -1)]
 	#print(recipelist[selected]["ingredients"])
 	return recipelist[selected]
+
+func choose_drink():
+	var options = ["", "Water", "Wine"]
+	return options[randi_range(0, options.size()-1)]

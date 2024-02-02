@@ -8,19 +8,21 @@ var slot : int
 var movement_speed = 1
 
 var choosen_meal
+var choosen_drink
 
 const MEAL_ICON_ROUTE = "res://Materials/Textures/UI/Meal_icons/"
 
 
 func init_guest():
+	GuestDialogManager.on_guest_enter(self)
+	
 	position = starting_position
-	
-	
 	await get_tree().create_timer(2 + 0.5 * slot).timeout
 	on_spot_arrival()
 	
 	$Guest_3/AnimationPlayer.play("Idle")
 	$Guest_2/AnimationPlayer.play("Idle")
+	
 	
 func _physics_process(delta):
 	#position = lerp(position, target_position, delta * 1)
@@ -28,9 +30,8 @@ func _physics_process(delta):
 
 
 func on_spot_arrival():
-	#dialog_sprite.visible = true
-	#dialog_sprite.play("default", randf_range(0.9, 1.1))
-	pass
+	GuestDialogManager.on_guest_arrived()
+	
 
 func evaluate_meal(bowl_ingredients, ingredients_stage):
 	var meal_score = 5
@@ -57,11 +58,10 @@ func evaluate_meal(bowl_ingredients, ingredients_stage):
 	
 func pay_and_leave():
 	target_position = starting_position
+	GuestDialogManager.on_guest_leave()
 	pass
 
 func get_texture(textures_dictionary: Dictionary) -> Texture2D:
 	var key = textures_dictionary.keys()[randi_range(0, textures_dictionary.size()-1)]
 	return load(textures_dictionary[key])
-
-
 

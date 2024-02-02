@@ -1,0 +1,31 @@
+~ meal_request
+Guest: One {{GuestDialogManager.selected_meal}}, please.
+
+- Something to drink?
+	if GuestDialogManager.wants_drink()
+		% Guest: {{GuestDialogManager.selected_Drink}}.
+		% Guest: {{GuestDialogManager.selected_Drink}}, please.
+	else 
+		Guest: No.
+=> END
+
+~ found_dead_1
+Guest: They found %Beatrice.
+- Found them ...?
+	Guest: Dead
+	- Terrible.
+	- Gods help us.
+	- 
+- I've heard.
+=> END
+
+~ found_dead
+Guest: There is a Vampire in town.
+- A Vampire?
+- How do you know?
+
+Guest: The doctor found %Beatrice dead in their home.
+Guest: Dry.
+Guest: Not a single drop of blood on their veins.
+=> END
+

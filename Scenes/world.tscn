@@ -1,7 +1,6 @@
-[gd_scene load_steps=38 format=3 uid="uid://c6psggx8qgdat"]
+[gd_scene load_steps=37 format=3 uid="uid://c6psggx8qgdat"]
 
 [ext_resource type="Script" path="res://Scripts/HandsControl.gd" id="1_8arvf"]
-[ext_resource type="Script" path="res://Scripts/Guest_Manager.gd" id="1_83nuh"]
 [ext_resource type="Script" path="res://Scripts/CameraPivot.gd" id="2_r0yoa"]
 [ext_resource type="Script" path="res://Scripts/Tools/CookingArea.gd" id="3_du6xc"]
 [ext_resource type="PackedScene" uid="uid://cbi6wolhq1su8" path="res://Models/Environment/Table.glb" id="4_5b1i8"]
@@ -14,8 +13,8 @@
 [ext_resource type="Shader" path="res://Materials/Shaders/OutlineShader.gdshader" id="9_i08qi"]
 [ext_resource type="PackedScene" uid="uid://ccru32x1knod6" path="res://Scenes/Prefabs/Tools/Grabbables/Knife.tscn" id="10_ue45u"]
 [ext_resource type="PackedScene" uid="uid://dbaxdrpik7b0m" path="res://Scenes/Prefabs/Tools/Grabbables/WineBottle.tscn" id="15_tkbs1"]
+[ext_resource type="Script" path="res://Scripts/Guests/Guest_Manager.gd" id="16_62q2g"]
 [ext_resource type="PackedScene" uid="uid://2fj02bj4m35x" path="res://Scenes/Prefabs/Ingredients/Raw/Garlic.tscn" id="17_4tpp4"]
-[ext_resource type="PackedScene" uid="uid://b06totxrrdkxm" path="res://Scenes/Dialog.tscn" id="18_i1mo7"]
 [ext_resource type="PackedScene" uid="uid://ddlgr56iw3uel" path="res://Scenes/Prefabs/Tools/MeatTable.tscn" id="19_abqss"]
 [ext_resource type="PackedScene" uid="uid://b6wxcu53d40i2" path="res://Scenes/Prefabs/Tools/Bowl_Stack.tscn" id="20_w4oue"]
 [ext_resource type="PackedScene" uid="uid://cysuuewg7dhus" path="res://Scenes/Prefabs/Guest.tscn" id="22_mufpv"]
@@ -80,8 +79,8 @@ radius = 0.193101
 [sub_resource type="SphereShape3D" id="SphereShape3D_ew4jl"]
 radius = 0.157181
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tamyk"]
-viewport_path = NodePath("Guest_manager/Dialog/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_wxb8q"]
+viewport_path = NodePath("Guest_manager/Dialog_view")
 
 [node name="World" type="Node3D"]
 script = ExtResource("2_r0yoa")
@@ -357,24 +356,16 @@ area_name = 8
 shape = SubResource("SphereShape3D_ew4jl")
 
 [node name="Guest_manager" type="Node" parent="."]
-script = ExtResource("1_83nuh")
+script = ExtResource("16_62q2g")
 guest_prefab = ExtResource("22_mufpv")
 
 [node name="Guest" parent="Guest_manager" instance=ExtResource("22_mufpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7)
 visible = false
 
-[node name="Dialog" type="Sprite3D" parent="Guest_manager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856914, 1.78143, -0.919595)
-texture_filter = 0
-render_priority = 1
-texture = SubResource("ViewportTexture_tamyk")
-
-[node name="SubViewport" type="SubViewport" parent="Guest_manager/Dialog"]
-transparent_bg = true
-size = Vector2i(120, 40)
-
-[node name="Dialog" parent="Guest_manager/Dialog/SubViewport" instance=ExtResource("18_i1mo7")]
+[node name="Sprite3D" type="Sprite3D" parent="Guest_manager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.781314, 1.71338, -0.783167)
+texture = SubResource("ViewportTexture_wxb8q")
 
 [node name="Garlic" parent="." instance=ExtResource("17_4tpp4")]
 transform = Transform3D(0.984558, -0.0569353, 0.16554, 0, 0.945632, 0.325238, -0.175057, -0.320216, 0.93103, 0.348954, 0.926483, -0.0322036)

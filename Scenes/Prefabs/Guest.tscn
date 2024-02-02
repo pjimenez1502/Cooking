@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://cysuuewg7dhus"]
 
-[ext_resource type="Script" path="res://Scripts/Guest.gd" id="1_vvaxm"]
+[ext_resource type="Script" path="res://Scripts/Guests/Guest.gd" id="1_e816o"]
 [ext_resource type="PackedScene" uid="uid://dbtcgwxacq1vq" path="res://Models/Guests/Guest_2.glb" id="4_xg0lm"]
 [ext_resource type="PackedScene" uid="uid://dejh2rvohvdcx" path="res://Models/Guests/Guest_3.glb" id="5_te0ox"]
 [ext_resource type="PackedScene" uid="uid://c6oyt8qdkb2yg" path="res://Models/Guests/Guests.glb" id="5_winlw"]
 
 [node name="Guest" type="Node3D"]
-script = ExtResource("1_vvaxm")
+script = ExtResource("1_e816o")
 
 [node name="Guests_1" parent="." instance=ExtResource("5_winlw")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -0.25, 0)
