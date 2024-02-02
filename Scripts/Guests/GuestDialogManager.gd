@@ -1,6 +1,6 @@
 extends Node
 
-signal GuestArrived
+signal GuestConvoReady
 signal GuestLeft
 signal ConvoEnded
 
@@ -31,7 +31,7 @@ func on_guest_enter(guest):
 
 func on_guest_arrived():
 	next_convo = "meal_request"
-	GuestArrived.emit()
+	GuestConvoReady.emit()
 
 func on_guest_leave():
 	GuestLeft.emit()

@@ -21,7 +21,7 @@ var target_rotation = table_view_camera_rotation
 var target_fov = table_fov
 
 func _init():
-	GuestDialogManager.GuestArrived.connect(enable_up_button)
+	GuestDialogManager.GuestConvoReady.connect(enable_up_button)
 	GuestDialogManager.GuestLeft.connect(disable_up_button)
 	GuestDialogManager.ConvoEnded.connect(enable_down_button)
 

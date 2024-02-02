@@ -9,7 +9,7 @@ Guest: One {{GuestDialogManager.selected_meal}}, please.
 		Guest: No.
 => END
 
-~ found_dead_1
+~ day_1
 Guest: They found %Beatrice.
 - Found them ...?
 	Guest: Dead
@@ -19,7 +19,7 @@ Guest: They found %Beatrice.
 - I've heard.
 => END
 
-~ found_dead
+~ day_2
 Guest: There is a Vampire in town.
 - A Vampire?
 - How do you know?
@@ -29,3 +29,13 @@ Guest: Dry.
 Guest: Not a single drop of blood on their veins.
 => END
 
+~ day_3
+Guest: Take this. The Priest says it will scare the blood sucker away.
+Guest: I already 
+=> END
+
+~ day_4
+=> END
+
+~ day_5
+=> END
