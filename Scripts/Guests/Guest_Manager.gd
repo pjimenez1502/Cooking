@@ -1,15 +1,18 @@
 extends Node
 
 const RECIPES_FILE = "res://Data/Recipes.json"
+
 @export var guest_prefab : PackedScene
-@onready var guests_parent = $"."
 
 var time_between_spawns = 2
 var guest_spawn_timer
 
+@onready var guests_parent = $"."
+
 var guest_slots = {
 	0:{"available": true, "position": 0, "guest": null},
 }
+var dailty_dialogs = ["item_garlic", "item_crux", "item_stake"]
 
 func _ready():
 	guest_spawn_timer = Timer.new()

@@ -10,8 +10,7 @@ var movement_speed = 1
 var choosen_meal
 var choosen_drink
 
-const MEAL_ICON_ROUTE = "res://Materials/Textures/UI/Meal_icons/"
-
+var dialog
 
 func init_guest():
 	GuestDialogManager.on_guest_enter(self)

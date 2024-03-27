@@ -9,17 +9,48 @@ Guest: One {{GuestDialogManager.selected_meal}}, please.
 		Guest: No.
 => END
 
+
 ~ day_1
 Guest: They found %Beatrice.
 - Found them ...?
 	Guest: Dead
 	- Terrible.
-	- Gods help us.
+	- Lord hear us.
 	- 
 - I've heard.
 => END
 
 ~ day_2
+
+=> END
+
+~ day_4
+=> END
+
+~ item_garlic
+Guest: Take this. The doctor says it will scare the blood sucker away.
+Guest: I have already put some over my door.
+- Thank you.
+	Guest: Lord hear us.
+- This will make good stock.
+=> END
+
+~ item_crux
+Guest: Have this, son.
+Guest: Be the wish of the lord that this evil meets it's end before it dooms us all.
+- Thank you, Father.
+- Lord hear us.
+	Guest: .
+=> END
+
+~ item_stake
+Guest: We have to end this evil.
+- I will do it.
+	Guest: Lord bless you.
+
+=> END
+
+~ dialogue_1
 Guest: There is a Vampire in town.
 - A Vampire?
 - How do you know?
@@ -27,15 +58,10 @@ Guest: There is a Vampire in town.
 Guest: The doctor found %Beatrice dead in their home.
 Guest: Dry.
 Guest: Not a single drop of blood on their veins.
-=> END
 
-~ day_3
-Guest: Take this. The Priest says it will scare the blood sucker away.
-Guest: I already 
-=> END
-
-~ day_4
-=> END
-
-~ day_5
+Guest: [wait=1]
+Guest: Who knows who will be dead tomorrow.
+- Lord hear us.
+	Guest: Lord hear us.
+-
 => END

@@ -11,11 +11,12 @@ var selected_meal : String
 var selected_drink : String
 
 func _init():
-	DialogueManager.dialogue_ended.connect(dialogue_ended)
+	DialogueManager.dialogue_ended.connect(dialogue_ended)	
 	
 func show_dialog():
 	balloon = DialogueManager.show_dialogue_balloon(load("res://Dialogue/Guest_dialog.dialogue"), next_convo)
 	next_convo = null
+	
 
 func dialogue_ended(res):
 	ConvoEnded.emit()

@@ -12,13 +12,13 @@ var fov_speed = 1.0
 var up_button_enabled := false
 var down_button_enabled := false
 
+var target_rotation = table_view_camera_rotation
+var target_fov = table_fov
+
 @onready var up_button = $"../UP_Button"
 @onready var down_button = $"../DOWN_Button"
 @onready var camera = $CameraPivot/SubViewportContainer/SubViewport/Camera3D
 
-
-var target_rotation = table_view_camera_rotation
-var target_fov = table_fov
 
 func _init():
 	GuestDialogManager.GuestConvoReady.connect(enable_up_button)
